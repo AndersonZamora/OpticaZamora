@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "ExpedientePacinete";
+}
+
+<style>
+    .bors {
+        border: 1px solid;
+        text-align: center;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .textFonzi {
+        font-size: 18px;
+    }
+
+    .ocul {
+        display: none;
+    }
+
+    .form-control {
+        font-size: 20px;
+    }
+
+    .form-grou2 {
+        border: 1px solid;
+        border-radius: 10px;
+    }
+</style>
+<div class="modal-content ">
+    <div class="col-md-12">
+        @foreach (var item in ViewBag.PacinetesDetalle)
+        {
+
+            <h2 class="text-center text-info pt-5">EXPEDIENTE</h2>
+            <hr />
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center  ">Codigo de Expediente</h3>
+                <h4 class="text-center">@item.CodigoExpediente</h4>
+            </div>
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center ">Doctor</h3>
+                <h4 class="text-center">@item.Doctor.Nombres @item.Doctor.Apellidos</h4>
+            </div>
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center ">Paciente</h3>
+                <h4 class="text-center">@item.Paciente.Nombres @item.Paciente.Apellidos</h4>
+            </div>
+            <div class="col-md-12  form-grou">
+                <br />
+                <h3 class="text-center text-info">Fecha de Consulta</h3>
+                <h4 class="text-center">@item.Fecha</h4>
+            </div>
+            <br />
+
+
+            <div class="col-md-12 form-grou pt-3">
+                <h3 class="text-info text-center pb-3">Medidas</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th></th>
+                        <th class="center text-info">Esfera</th>
+                        <th class="center text-info">Cilindro</th>
+                        <th class="center text-info">Eje</th>
+                    </tr>
+                    <tr>
+                        <td class="text-center text-info">Ojo Derecho</td>
+                        <td>
+                            <h3 class="text-center">@item.DEsfera</h3>
+                        </td>
+                        <td>
+                            <h3 class="text-center">@item.DCilindro</h3>
+                        </td>
+                        <td>
+                            <h3 class="text-center">@item.DEje</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center text-info">Ojo Izquierdo</td>
+
+                        <td>
+                            <h3 class="text-center">@item.IEsfera</h3>
+                        </td>
+                        <td>
+                            <h3 class="text-center">@item.ICilindro</h3>
+                        </td>
+                        <td>
+                            <h3 class="text-center">@item.IEje</h3>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="col-md-12  pb-4 form-grou">
+                <br />
+                <h3 class="text-center text-info ">Diagnostico y Recomendacion</h3>
+                <h4 class="text-center">@item.Recomendacion</h4>
+            </div>
+            <div class="col-md-12 center pb-4 form-grou">
+                <a href="#" class="btn btn-primary">Editar </a>
+                <a href="/Optica/VentaPaciente?IdPaciente=@item.Paciente.IdPaciente" class="btn btn-danger">Venta </a>
+            </div>
+
+        }
+
+    </div>
+</div>

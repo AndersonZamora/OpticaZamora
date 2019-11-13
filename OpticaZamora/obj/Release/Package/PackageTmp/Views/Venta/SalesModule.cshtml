@@ -1,0 +1,233 @@
+﻿
+@{
+    ViewBag.Title = "SalesModule";
+    var cliente = ViewBag.cliente;
+}
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-7  col-md-12">
+                <div class="border-right">
+                    <h2 class="text-center  font-weight-bold">Venta</h2>
+                    <h3>
+                        <a id="AgregarCleinteLink" href="#" class="badge badge-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Agregar un Cliente</a>
+                        <label>  <strong class="text-info">Antes de Agregar Productos</strong></label>
+                    </h3>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <h2 class="font-weight-bold">Datos del Cliente</h2>
+                            <form action="/Venta/SalesModule" method="post">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td class="font-weight-bold">Nombres</td>
+                                            <td class="font-weight-bold">Apellidos</td>
+                                            <td class="font-weight-bold">DNI</td>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            @if (cliente != null)
+                                            {
+                                                <td>
+                                                    <h5>
+                                                        <a class="btn btn-outline-danger" href="/Venta/AddCliente?IdPaciente=1">Eliminar</a>
+                                                    </h5>
+                                                </td>
+                                                <td>
+                                                    <h5>
+                                                        <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" href="/Venta/Expediente?Pacinete_Expediente=@cliente.IdPaciente">Expediente</a>
+                                                    </h5>
+                                                </td>
+                                            }
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @if (cliente != null)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <input class="form-control" disabled value="@cliente.Nombres" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" disabled value="@cliente.Apellidos" />
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" disabled value="@cliente.NumeroDocumento" />
+                                                    <input name="PacienteId" hidden value="@cliente.IdPaciente" />
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <h2 class="font-weight-bold">Productos</h2>
+                                <table class="table " id="first_table">
+                                    <thead>
+                                        <tr>
+                                            @*<th>Id</th>*@
+                                            <th class="text-center font-weight-bold">Producto</th>
+                                            <th class="text-center font-weight-bold">Categoria</th>
+                                            <th class="text-center font-weight-bold">Cantidad</th>
+                                            <th class="text-center font-weight-bold">Precio</th>
+                                            <th class="text-center font-weight-bold">Stock</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="BodyProductos"></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="text-center">Total</td>
+                                            <td class="text-center">
+                                                <span id="total">0</span>
+                                                <input class="form-control" type="hidden" id="total_final" name="Total" value="0" readonly />
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="col-12 col-md-12">
+                                    <button class="btn btn-danger">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-5 col-md-5 pt-3 ">
+                <h2 class="text-center pb-2 font-weight-bold">Lista de Productos</h2>
+                <label class="pb-2">INGRESE CRITERIOS DE BUSCQUEDA COMO NOMBRE, CODIGO O CATEGORIA DEL PRODUCTO (despliegue la lista para selecionar o buscar un producto)</label>
+                @*<select id="ProductoAelegir">*@
+                <select class="js-example-placeholder-single js-states form-control" id="ProductoAelegir">
+                    <option class="text-info"></option>
+                    @foreach (var item in ViewBag.Producto)
+                    {
+                        <option value="@item.IdProducto">@item.Nombre - @item.Categoria.Nombre - @item.CodigoProducto</option>
+                    }
+                </select>
+                <a href="#" id="BtnAgregarProducto" class="btn btn-success btn-block">Agregar</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <h3>HOLI</h3>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-lg-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Buscar un Cliente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="colorLa" for="firstName">Ingrese el DNI del Cliente</label>
+                        <input type="text" class="form-control" id="search" placeholder="DNI">
+                    </div>
+                </div>
+                <div>
+                    <table class="table table-hover" id="mytable" cellspacing="0">
+                        <thead class="">
+                            <tr role="row">
+                                <td>NUMERO DE DNI</td>
+                                <td>NOMBRES</td>
+                                <td>APELLIDOS</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var pacients in ViewBag.paciente)
+                            {
+                                <tr>
+                                    <td>@pacients.NumeroDocumento</td>
+                                    <td>@pacients.Nombres</td>
+                                    <td>@pacients.Apellidos</td>
+                                    <td>
+                                        <a class="btn btn-info" id="AgregarClint" href="/Venta/AddCliente?IdPaciente=@pacients.IdPaciente">Agregar</a>
+                                      
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(".js-example-placeholder-single").select2({
+        placeholder: "Select a product",
+        allowClear: true
+    });
+    $('#BtnAgregarProducto').click(function (e) {
+        e.preventDefault();
+
+        var index = $('#BodyProductos').find('tr').length;
+
+        $.ajax({
+            url: '/Venta/ItemVenta?id=' + $('#ProductoAelegir').val() + "&index=" + index,
+            type: 'get'
+        }).done(function (response) {
+            $("#BodyProductos").append(response);
+        });
+    });
+    function Calcular(ele) {
+        var cantidad = 0, precunit = 0, totalitem = 0;
+        var tr = ele.parentNode.parentNode;
+        var nodes = tr.childNodes;
+
+        for (var x = 0; x < nodes.length; x++) {
+
+            if (nodes[x].firstChild.id == 'cantidad[]') {
+                cantidad = parseFloat(nodes[x].firstChild.value, 2);
+            }
+            if (nodes[x].firstChild.id == 'precunit[]') {
+                precunit = parseFloat(nodes[x].firstChild.value, 2);
+            }
+            if (nodes[x].firstChild.id == 'totalitem[]') {
+                anterior = nodes[x].firstChild.value;
+                totalitem = parseFloat((precunit * cantidad), 10);
+                nodes[x].firstChild.value = totalitem;
+            }
+        }
+        // Resultado final de cada fila ERROR, al editar o eliminar una fila
+        var total = document.getElementById("total");
+
+        if (total.innerHTML == 'NaN') {
+            total.innerHTML = 0;
+        }
+        var precc = parseFloat(total.innerHTML) + totalitem - anterior;
+        total.innerHTML = precc.toFixed(2);
+    }
+
+    $(document).on('click', '.borrar', function (event) {
+        event.preventDefault();
+        $(this).closest('tr').remove();
+    });
+
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            _this = this;
+            // Mostrar solo TR coincidentes, ocultar el resto de ellos
+            $.each($("#mytable tbody tr"), function () {
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    });
+</script>

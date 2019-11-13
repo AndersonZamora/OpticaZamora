@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "EspxdiexteSave";
+}
+<style>
+    .bors {
+        border: 1px solid;
+        text-align: center;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .textFonzi {
+        font-size: 18px;
+    }
+
+    .ocul {
+        display: none;
+    }
+
+    .form-control {
+        font-size: 20px;
+    }
+
+    .form-grou2 {
+        border: 1px solid;
+        border-radius: 10px;
+    }
+
+    .colr {
+        color: red;
+    }
+
+    .dis {
+        color: black;
+        font-size: 20px;
+    }
+
+    .ancho {
+        display: inherit;
+        width: 80%;
+    }
+</style>
+
+<div class="modal-content ">
+    <div class="col-md-12">
+        <form action="/Casefile/SaveEspxdiexte" method="post">
+
+            <h2 class="text-center text-info pt-4  ">Consulta</h2>
+            <hr />
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center  ">Codigo de Expediente</h3>
+                <input id="CodigoExpediente" class="form-control text-center" name="CodigoExpediente" value="@Model.CodigoExpediente" disabled="disabled" />
+            </div>
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center ">Doctor</h3>
+                @Html.DropDownList("DoctorId", ViewBag.Docotres as SelectList, new { @class = "alt  textFonzi text-center form-control js-example-placeholder-single js-states" })
+            </div>
+            <div class="form-grou col-lg-4 col-md-2">
+                <h3 class="text-info text-center ">Paciente</h3>
+                @Html.DropDownList("PacienteId", ViewBag.Pacientes as SelectList, new { @class = "alt ocul textFonzi text-center form-control" })
+
+                @foreach (var item in ViewBag.PacinetesDetalle)
+                {
+                    <h3 class="text-center">@item.Nombres @item.Apellidos</h3>
+                }
+            </div>
+            <div class="col-md-6  form-grou center">
+                <br />
+                <h3 class="text-center">Fecha de Consulta</h3>
+                <input type="date" class="datepicker form-control" name="Fecha" value="@Model.Fecha" />
+
+            </div>
+            <br />
+
+
+            <div class="col-md-12 form-grou pt-5">
+
+                <h2 class="text-center text-info  pb-3">Medida de Vista</h2>
+                <table class="table table-bordered">
+                    <tr>
+                        <th></th>
+                        <th class="center">Esfera</th>
+                        <th class="center">Cilindro</th>
+                        <th class="center">Eje</th>
+                    </tr>
+                    <tr>
+                        <td>Ojo Derecho</td>
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo"></span></p>
+                            <input type="range" min="-200" step="0.01" id="myRange" max="200" name="DEsfera" class="textFonzi bors form-control" value="0.0" />
+
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"><span id="demo2"></span></p>
+                            <input type="range" min="-200" step="0.01" id="myRange2" max="200" name="DCilindro" class="textFonzi bors form-control" value="0.0" />
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"><span id="demo3"></span></p>
+                            <input type="range" min="-200" step="0.01" id="myRange3" max="200" name="DEje" class="textFonzi bors form-control" value="0.0" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ojo Izquierdo</td>
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo4"></span></p>
+                            <input type="range" min="-200" step="0.01" id="myRange4" max="200" name="IEsfera" class="textFonzi bors form-control" value="0.0" />
+
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo5"></span></p>
+                            <input type="range" min="-200" step="0.01" id="myRange5" max="200" name="ICilindro" class="textFonzi bors form-control" value="0.0" />
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo6"></span></p>
+                            <input type="range" min="-200" step="0.01" id="myRange6" max="200" name="IEje" class="textFonzi bors form-control" value="0.0" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="col-md-12  pb-4 form-grou">
+                    <br />
+                    <h3 class="text-center text-info ">Diagnostico y Recomendacion</h3>
+                    <textarea name="Recomendacion" class="text-center textFonzi form-grou2 form-control" placeholder="Diagnostico y Recomendacion"></textarea>
+                </div>
+                <h2 class="text-center text-info pt-3 pb-3">Medida de Montura</h2>
+
+            </div>
+            <div class="col-md-4 center">
+                <h1 class="text-info">Medias</h1>
+
+                <h3 class="center"><strong class="colr">A.</strong> Anchura Total:</h3>
+                <input name="AnchuraTotal" class="form-control center ancho " />
+                <label class="dis">mm</label>
+
+                <h3 center><strong class="colr">B.</strong> Puente:</h3>
+                <input name="Puente" class="form-control center ancho" />
+                <label class="dis">mm</label>
+
+                <h3 center><strong class="colr">C.</strong> Calibre:</h3>
+                <input name="Calibre" class="form-control center ancho" />
+                <label class="dis">mm</label>
+
+                <h3 center><strong class="colr">D.</strong> Longitud de las Varilla:</h3>
+                <input name="LongitudVarilla" class="form-control center ancho" />
+                <label class="dis">mm</label>
+            </div>
+            <div class="col-md-8 center montura">
+                <figure>
+                    <img class="img" src="~/assets/img/Montura.jpg" width="100%" />
+                </figure>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+        </form>
+    </div>
+</div>
+<script>
+    $(".js-example-placeholder-single").select2({
+        placeholder: "Select a product",
+        allowClear: true
+    });
+</script>

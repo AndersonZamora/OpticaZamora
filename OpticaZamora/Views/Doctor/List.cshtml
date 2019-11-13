@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Doctores</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de doctores,
+                        acá puede realizar operaciones como agregar
+                        nuevos doctores, ver la lista de
+                        doctores y actualizar datos de un doctor.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-3 mb-3">
+                    <a id="doctorLink" class="nav-link " href="/Doctor/Save">
+                        <i class="material-icons">person_add</i>
+                        Agregar Nuevo Doctor
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .colorLa {
+                color: red;
+            }
+            .colorLa {
+                color: red;
+            }
+            #datatable_length, label {
+                font-size: 18px;
+                color: #1b1b1b;
+            }
+
+            #datatable_length, label, select {
+                border-radius: 10px;
+                background: transparent;
+                padding: 5px;
+                text-align: center;
+            }
+            #datatable_filter, label, input[type=search] {
+                border-radius: 10px;
+            }
+        </style>
+        <div class="container">
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h3 class="card-title mt-0">LISTA DE DOCTORES</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="datatable">
+                                    <thead class="">
+                                        <tr role="row">
+
+                                            <td class="text-center font-weight-bold">Codigo</td>
+                                            <td class="text-center font-weight-bold">Nombre de Usuario</td>
+                                            <td class="text-center font-weight-bold">NOMBRES</td>
+                                            <td class="text-center font-weight-bold">APELLIDOS</td>
+                                            <td class="text-center font-weight-bold">Numero de Documento</td>
+                                            <td class="text-center font-weight-bold">EPECIALIDAD</td>
+                                            <td class="text-center font-weight-bold">CELULAR</td>
+                                            <td><h5 class="font-weight-bold">ESTADO</h5></td>
+                                            <td><h5 class="font-weight-bold">EDITAR</h5></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var doctores in Model)
+                                        {
+                                            <tr>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.Codigo</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.Username</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.Nombres</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.Apellidos</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.NumeroDocumento</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.Especialidad</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.Celular</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@doctores.Estado</h4></td>
+                                                <td>
+                                                    <a href="/Doctor/Edit?Doctor_Edit=@doctores.IdDoctor"><i class="material-icons">edit</i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            language: {
+                decimal: ",",
+                processing: "Traitement en cours...",
+                search: "Buscar&nbsp;:",
+                lengthMenu: "Mostrar _MENU_ Entradas",
+                info: "",
+                infoEmpty: "",
+                infoFiltered: "",
+                infoPostFix: "",
+                loadingRecords: "Chargement en cours...",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "Aucune donnée disponible dans le tableau",
+                paginate: {
+                    first: "Previos",
+                    previous: "Previo",
+                    next: "Siguiente",
+                    last: "Dernier"
+                },
+                aria: {
+                    sortAscending: ": activer pour trier la colonne par ordre croissant",
+                    sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                }
+            }
+        });
+    });
+    </script>

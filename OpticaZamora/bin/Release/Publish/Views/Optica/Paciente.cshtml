@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Paciente";
+}
+
+@using OpticaZamora.Models
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Pacientes</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de pacientes,
+                        acá puede realizar operaciones como agregar nuevos pacientes,
+                        ver la lista de pacientes, actualizar datos de un paciente y
+                        eliminar un paciente del sistema.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 mt-3 mb-3">
+                    <a class="nav-link " href="/Optica/PacienteSave">
+                        <i class="material-icons">person_add</i>
+                        Agregar Nuevo Paciente
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .colorLa {
+                color: red;
+            }
+        </style>
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">BUSQUEDA</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="colorLa" for="firstName">¿Qué Paciente estas buscando?</label>
+                                <input type="text" name="criterio" class="form-control" id="firstName" placeholder="Escribe el nombre o Apellido" maxlength="30" required>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+                            @*<div class="col-md-6 mb-3">
+                                    <label class="colorLa" for="lastName">Selecione una Sursal</label>
+                                    @Html.DropDownList("sucursal", ViewBag.Sucursal as SelectList, "Seleccione", new { @class = "form-control" })
+
+                                    <div class="invalid-feedback">
+                                        Valid last name is required.
+                                    </div>
+                                </div>*@
+                        </div>
+                        <hr class="mb-4">
+                        <button class="btn btn-outline-primary btn-sm btn-block" type="submit">BUSCAR</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title mt-0">LISTA DE PACIENTES</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                    <tr>
+                                        <td>DOCUMENTO</td>
+                                        <td>N# DOCUMENTO</td>
+                                        <td>NOMBRES</td>
+                                        <td>APELLIDOS</td>
+                                        <td>EDAD</td>
+                                        <td>EDITAR</td>
+                                        <td>Expediente</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var pacients in Model)
+                                    {
+                                        <tr>
+                                            <td>@pacients.TipoDocumento</td>
+                                            <td>@pacients.NumeroDocumento</td>
+                                            <td>@pacients.Nombres</td>
+                                            <td>@pacients.Apellidos</td>
+                                            <td>@pacients.Edad</td>
+                                            <td>
+                                                <a href="/Optica/PacienteEditar?IdPaciente=@pacients.IdPaciente"><i class="material-icons">edit</i></a>
+                                            </td>
+                                            <td>
+                                                <a href="/Optica/ExpedientePacinete?IdPaciente=@pacients.IdPaciente"><i class="material-icons">edit</i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

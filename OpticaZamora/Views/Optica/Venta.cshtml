@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Venta";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>VENTAS</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de Ventas, acá puede ver las ventas realizadas
+                        y sus detalles
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-3 mb-3">
+                    <a id="linkVenta" class="nav-link" href="/Venta/SalesModule">
+                        <i class="material-icons">person_add</i>
+                        Realizar una Venta
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .colorLa {
+                color: red;
+            }
+
+            .colorLa {
+                color: red;
+            }
+
+            #datatable_length, label {
+                font-size: 18px;
+                color: #1b1b1b;
+            }
+
+            #datatable_length, label, select {
+                border-radius: 10px;
+                background: transparent;
+                padding: 5px;
+                text-align: center;
+            }
+
+            #datatable_filter, label, input[type=search] {
+                border-radius: 10px;
+            }
+        </style>
+        <div class="container">
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h3 class="card-title mt-0">LISTA DE VENTAS REALIZADAS</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="datatable">
+                                    <thead class="">
+                                        <tr role="row">
+
+                                            <td class="text-center font-weight-bold">Fecha</td>
+                                            <td class="text-center font-weight-bold">Nombres del Cliente</td>
+                                            <td class="text-center font-weight-bold">DNI del Cliente</td>
+                                            <td class="text-center font-weight-bold">Detalle de Venta</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var venta in Model)
+                                        {
+                                            <tr>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@venta.FechaVenta</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@venta.Paciente.Nombres @venta.Paciente.Apellidos</h4></td>
+                                                <td><h4 class="text-center text-dark font-weight-bold">@venta.Paciente.NumeroDocumento</h4></td>
+                                                <td>
+                                                    <a href="/Optica/ExpedientePacinete?IdPaciente=@venta.IdSALE"><i style="font-size:20px;" class="fa fa-list" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            language: {
+                decimal: ",",
+                processing: "Traitement en cours...",
+                search: "Buscar&nbsp;:",
+                lengthMenu: "Mostrar _MENU_ Entradas",
+                info: "",
+                infoEmpty: "",
+                infoFiltered: "",
+                infoPostFix: "",
+                loadingRecords: "Chargement en cours...",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "Aucune donnée disponible dans le tableau",
+                paginate: {
+                    first: "Previos",
+                    previous: "Previo",
+                    next: "Siguiente",
+                    last: "Dernier"
+                },
+                aria: {
+                    sortAscending: ": activer pour trier la colonne par ordre croissant",
+                    sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                }
+            }
+        });
+    });
+</script>

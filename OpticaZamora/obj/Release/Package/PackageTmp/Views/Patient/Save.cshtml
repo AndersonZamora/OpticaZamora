@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Save";
+}
+@using OpticaZamora.Models
+<div class="content">
+    <div class="container-fluid" style="padding-bottom: 70px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Pacientes</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de pacientes,
+                        acá puede realizar operaciones como agregar nuevos pacientes,
+                        ver la lista de pacientes, actualizar datos de un paciente y
+                        eliminar un paciente del sistema.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 mt-3 mb-3">
+                    <a id="pacientelistaLink" class="nav-link " href="/Patient/List">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Lista de Paciente
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-flat-form">
+            <div class="title-flat-form title-flat-blue">Nuevo Paciente</div>
+            <form action="/Patient/Save" method="POST" autocomplete="off" enctype="multipart/form-data" class="form-paddin AjaxForm" data-form="save">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">TIPO Y NÚMERO DE IDENTIFICACIÓN (DNI/CÉDULA/PASAPORTE)</legend><br>
+                        </div>
+                        <style>
+                            .ancho {
+                                font-size: 20px;
+                                padding-left: 4px;
+                                border-bottom: 1px solid #5264AE;
+                            }
+                        </style>
+                        <div class="col-xs-12">
+                            <div id="pacienteFromDNI" class="group-material">
+                                <span>Tipo de documento</span>
+                                <br />
+                                <label class="control-label"></label>
+                                <br />
+                                @Html.DropDownList("TipoDocumento",
+                                    new SelectList(Enum.GetValues(typeof(TipoDocumento))),
+
+                                    new {id= "TipoDocumento", @class = "ancho form-control" })
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>NUMERO DE IDENTIFICACION</strong></h4>
+                                <input id="pacienteNumeroDocumento" type="text" name="NumeroDocumento" value="@Model.NumeroDocumento" class="material-control" placeholder="NUMERO DE IDENTIFICACION" title="Maximo 8 caracteres numericos, sin espacios">
+                                <h4><strong style="color:red">@Html.ValidationMessage("NumeroDocumento")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">DATOS BÁSICOS</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Nombres</strong></h4>
+                                <input id="pacienteNombres" type="text" name="Nombres" value="@Model.Nombres" class="material-control" title="Máximo 25 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Nombres")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Apellidos</strong></h4>
+                                <input id="pacienteApellidos" type="text" name="Apellidos" value="@Model.Apellidos" class="material-control" title="Máximo 25 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Apellidos")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">EDAD, E-MAIL, DIRECCIÓN Y GÉNERO</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6 form-group">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Edad</strong></h4>
+                                <p class="pt-4 text-center"> <span id="demo"></span> Años</p>
+                                <input type="range" min="3" max="100" id="myRange" name="Edad" value="@Model.Edad" class="form-control">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Edad")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 form-group">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Correo</strong></h4>
+                                <input id="pacienteCorreo" @*type="email"*@ name="Correo" value="@Model.Correo" class="material-control" placeholder="Correo electronico" title="Maximo 50 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Correo")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-6 form-group">
+                            <div id="pacienteGenero" class="group-material">
+                                <h4>Género</h4>
+                                @Html.DropDownList("TipoGenero",
+                                    new SelectList(Enum.GetValues(typeof(Genero))),
+                                    new { @class = "ancho form-control"})
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group" >
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Direccion</strong></h4>
+                                <input id="pacienteDireccion" type="text" name="Direccion" value="@Model.Direccion" class="material-control" placeholder="Dirección" title="Máximo 150 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Direccion")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">NÚMERO TELÉFONICO</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Número de Teléfono</strong></h4>
+                                <input id="pacienteCelular" type="text" name="Celular" value="@Model.Celular" class="material-control" placeholder="Número de celular" title="Máximo 15 caracteres numéricos, sin espacios">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Celular")</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center">
+                    <button onclick="swal('Good job', 'Datos Limpiados!' , 'success')" id="pacienteLimpiar" type="reset" class="btn btn-info" style="margin-right: 20px;">Limpiar</button>
+                    <button id="pacienteGuardar" type="submit" class="btn btn-primary"> Guardar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

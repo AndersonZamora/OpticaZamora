@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "SaveCategoria";
+}
+
+@using OpticaZamora.Models
+@{
+    ViewBag.Title = "Save";
+}
+<div class="content">
+    <div class="container-fluid" style="padding-bottom: 70px;">
+        <div class="container">
+            <div class="col-6">
+                <h3><strong>Categorias</strong></h3>
+                <p class="card-title mt-0 text-justify">
+                    Bienvenido al módulo de Categoria,
+                    acá puede realizar operaciones como agregar
+                    nuevas categorias, ver la lista de
+                    categorias.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-3 mb-3">
+                    <a class="nav-link " href="/Optica/Categorias">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Lista de Categorias
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-flat-form">
+            <div class="title-flat-form title-flat-blue"><i class="zmdi zmdi-plus"></i> NUEVA CATEGORIA</div>
+            <form action="/Optica/GuardarCategoria" method="POST" autocomplete="off" enctype="multipart/form-data" class="form-paddin AjaxForm" data-form="save">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">DATOS</legend><br>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="text" name="Nombre" value="@Model.Nombre" class="material-control" placeholder="Nombres" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,25}" maxlength="25" title="Máximo 25 caracteres">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                @*<label>Nombres (*)<strong>@Html.ValidationMessage("Name")</strong> </label>*@
+                            </div>
+                        </div>
+                       
+                    <p class="text-center">
+                        <button type="reset" class="btn btn-info" style="margin-right: 20px;">Limpiar</button>
+                        <button type="submit" class="btn btn-primary"> Guardar</button>
+                    </p>
+
+            </form>
+        </div>
+    </div>
+</div>

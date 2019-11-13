@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Espxdiexte";
+}
+
+<div class="container">
+    <div class="modal-content content-center">
+        <div class="row">
+            @foreach (var item in ViewBag.paciente)
+            {
+                <div class="col-md-6 border-right pt-4">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h3 class="card-title mt-0">DATOS DEL PACIENTE</h3>
+                        </div>
+                    </div>
+                    <div class="card-collapse">
+                        <h3 class="pl-4">Nombres:  <strong>@item.Nombres</strong></h3>
+                        <h3 class="pl-4">Apellidos: <strong>@item.Apellidos</strong></h3>
+                        <h3 class="pl-4">Celular: <strong>@item.Celular</strong></h3>
+                        <h3 class="pl-4">E-MAIL: <strong>@item.Correo</strong></h3>
+                        <h3 class="pl-4">DNI: <strong>@item.NumeroDocumento</strong></h3>
+                        <h3 class="pl-4">Direccion: <strong>@item.Direccion</strong></h3>
+                        <h3 class="pl-4">Genero: <strong>@item.TipoGenero</strong></h3>
+                    </div>
+                </div>
+                <div class="col-md-6 pt-4">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h3 class="card-title mt-0">LISTA DE EXPEDIENTES</h3>
+                        </div>
+                    </div>
+                    <div class="card-collapse">
+                        <div class="card-collapse">
+                            <h3 class="text-center">
+                                <a href="/Casefile/EspxdiexteSave?Save_Espxdiexte_Paciente=@item.IdPaciente">Agregar un nuevo Expediente</a>
+                            </h3>
+                        </div>
+                        <div class="card card-plain">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="">
+                                            <tr>
+                                                <td><h5 class="text-center">Codigo de Expediente</h5> </td>
+                                                <td><h5 class="text-center">Fecha</h5> </td>
+                                                <td><h5 class="text-center">Detalles</h5> </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var expediente in Model)
+                                            {
+                                                <tr>
+                                                    <td><h4 class="text-center">@expediente.CodigoExpediente</h4> </td>
+                                                    <td><h4 class="text-center">@expediente.Fecha</h4></td>
+                                                    <td><h4 class="text-center"><a href="/Casefile/EspxdiexteDetail?Espxdiexte_Detail=@expediente.IdExpediente" target="_blank">Detalle</a></h4></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

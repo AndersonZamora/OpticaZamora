@@ -1,0 +1,142 @@
+﻿@using OpticaZamora.Models
+@{
+    ViewBag.Title = "Save";
+}
+<div class="content">
+    <div class="container-fluid" style="padding-bottom: 70px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Doctores</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de doctores,
+                        acá puede realizar operaciones como agregar
+                        nuevos doctores, ver la lista de
+                        doctores y actualizar datos de un doctor.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-3 mb-3">
+                    <a id="doctorlistaLink" class="nav-link " href="/Doctor/List">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Lista de Doctores
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-flat-form">
+            <div class="title-flat-form title-flat-blue">Nuevo Doctor</div>
+            <form action="/Optica/DoctorGuardar" method="POST" autocomplete="off" enctype="multipart/form-data" class="form-paddin AjaxForm" data-form="save">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">TIPO, NÚMERO DE IDENTIFICACIÓN Y CODIGO  (DNI)</legend><br>
+                        </div>
+                        <div class="col-xs-12">
+                            <div id="doctorTipoDocumento" class="group-material">
+                                <h4 class="pl-2"><strong>TIPO DE DOCUMENTO</strong></h4>
+                                <label class="control-label"></label>
+                                <style>
+                                    .ancho {
+                                        font-size: 20px;
+                                        padding-left: 4px;
+                                        border-bottom: 1px solid #5264AE;
+                                    }
+                                </style>
+                                <br />
+                                @Html.DropDownList("TipoDocumento",
+                                    new SelectList(Enum.GetValues(typeof(TipoDocumento))),
+
+                                    new { @class = "ancho form-control" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>NUMERO DE IDENTIFICACION</strong></h4>
+                                <input id="doctorNumeroDocumento" type="text" name="NumeroDocumento" value="@Model.NumeroDocumento" class="material-control" placeholder="NUMERO DE IDENTIFICACION (Máximo 8 Caracteres [Numericos] sin espacios)">
+                                <h4><strong style="color:red">@Html.ValidationMessage("NumeroDocumento")</strong></h4>
+                                <br />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>CODIGO</strong></h4>
+                                <input id="doctorCodigo" type="text" name="Codigo" value="@Model.Codigo" class="material-control" laceholder="NUMERO DE IDENTIFICACION (Máximo 6 Caracteres [Numericos o Alfabeticos] sin espacios)">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Codigo")</strong></h4>
+                                <br />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">NOMBRES Y APELLIDOS</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Nombres</strong></h4>
+                                <input id="doctorNombres" type="text" name="Nombres" value="@Model.Nombres" class="material-control" placeholder="Nombres" title="Máximo 30 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Nombres")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Apellidos</strong></h4>
+                                <input id="doctorApellidos" type="text" name="Apellidos" value="@Model.Apellidos" class="material-control" placeholder="Apellidos" title="Máximo 30 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Apellidos")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">NÚMERO TELEFÓNICO,CELULAR, ESTADO Y ESPECIALIDAD</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Número de teléfono o celular</strong></h4>
+                                <input id="doctorCelular" type="text" name="Celular" value="@Model.Celular" class="material-control" placeholder="Número de Celular" title="Máximo 15 caracteres numéricos">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Celular")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Especialidad</strong></h4>
+                                <input id="doctorEspecialidad" type="text" name="Especialidad" value="@Model.Especialidad" class="material-control" placeholder="Especialidad" title="Máximo 25 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Especialidad")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div id="doctorEstado" class="group-material">
+                                <span>Estado</span>
+                                <br />
+                                <label class="control-label"></label>
+                                <br />
+                                @Html.DropDownList("Estado",
+                                    new SelectList(Enum.GetValues(typeof(Estado))),
+
+                                    new { @class = "ancho form-control" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">DATOS DE LA CUENTA</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Nombre de usuario </strong></h4>
+                                <input id="doctorUsername" type="text" name="Username" value="@Model.Username" class="material-control" placeholder="Nombre de usuario" title="Máximo 15 caracteres">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Username")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Contraseña</strong></h4>
+                                <input id="doctorPassword" type="password" name="Password" value="@Model.Password" class="material-control" placeholder="Clave" title="Escriba la clave">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Password")</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center">
+                    <button onclick="swal('Good job', 'Datos Limpiados!' , 'success')" type="reset" id="doctorLimpiar" class=" btn btn-info" style="margin-right: 20px;">Limpiar</button>
+                    <button type="submit" id="doctroGuardar" class="btn btn-primary"> Guardar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

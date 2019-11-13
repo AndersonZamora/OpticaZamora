@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Expediente";
+    var a = Model;
+    
+}
+<div>
+    @if (a != null)
+    {
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+
+                        @Model.Fecha
+                        @Model.Paciente.Nombres
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    }
+    @if (a == null)
+    {
+        <h2>No hay expediente <strong><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Agregar Expedeiente</a></strong></h2>
+    }
+</div>

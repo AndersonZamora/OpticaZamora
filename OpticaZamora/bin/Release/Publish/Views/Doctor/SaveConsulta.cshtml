@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "SaveConsulta";
+    Layout = "~/Views/Shared/_LayoutDoctor.cshtml";
+}
+<div class="modal-content ">
+    <div class="col-md-12">
+        <form action="/Doctor/GuardarConsulta" method="post">
+
+            <h3 class="text-center  ">Consulta</h3>
+            <hr />
+            <div class="form-grou">
+                <h3 class="text-center">Nro. de Consulta</h3>
+                <input class="form-control" name="NumeroVneta" disabled="disabled" value="@Model.NumeroVneta" />
+            </div>
+            <br />
+            <div class="col-md-6 form-grou">
+                <h3 class="text-center">Doctor</h3>
+                @Html.DropDownList("DoctorId", ViewBag.doctores as SelectList, "Seleccione", new { @class = "alt textFonzi form-control" })
+
+            </div>
+            @*<div class="col-md-6 form-grou">
+                <h3 class="text-center">Sucursal</h3>
+                @Html.DropDownList("NombreSucursal", ViewBag.sucursale as SelectList, "Seleccione", new { @class = "alt textFonzi form-control" })
+            </div>*@
+            
+            <div class="col-md-12  form-grou">
+                <br />
+                 <h3 class="text-center">Fecha de Consulta</h3>
+                <input type="date" class="form-control" name="Fecha" />
+            </div>
+            <br />
+            <style>
+                .bors {
+                    border: 1px solid;
+                    text-align: center;
+                }
+
+                .center {
+                    text-align: center;
+                }
+
+                .textFonzi {
+                    font-size: 18px;
+                }
+
+                .form-control {
+                    font-size: 20px;
+                }
+            </style>
+           
+            <div class="col-md-12 pt-5">
+                <table class="table table-bordered">
+                    <tr>
+                        <th></th>
+                        <th class="center">Esfera</th>
+                        <th class="center">Cilindro</th>
+                        <th class="center">Eje</th>
+                    </tr>
+                    <tr>
+                        <td>Ojo Derecho</td>
+                        <td><input type="text" name="DEsfera" class="textFonzi bors form-control" value="0.0"/></td>
+                        <td><input type="text" name="DCilindro" class="bors textFonzi form-control" value="0.0"/></td>
+                        <td><input type="text" name="DEje" class="bors textFonzi form-control" value="0.0"/></td>
+                    </tr>
+                    <tr>
+                        <td>Ojo Izquierdo</td>
+                        <td><input type="text" name="IEsfera" class="bors textFonzi form-control" value="0.0" /></td>
+                        <td><input type="text" name="ICilindro" class="bors textFonzi form-control" value="0.0"/></td>
+                        <td><input type="text" name="IEje" class="bors textFonzi form-control" value="0.0"/></td>
+                    </tr>
+                </table>
+
+            </div>
+            <br />
+            <div class="form-grou pt-2">
+                <h3 class="text-center badge-colors">Paciente</h3>
+                @Html.DropDownList("PacienteId", ViewBag.pacientes as SelectList, "Seleccione", new { @class = "alt form-control" })
+                <br />
+
+
+                <div class="form-grou">
+                    <h3 class="text-center ">Diagnostico y Recomendacion</h3>
+                    <textarea name="Diagnostico" class="text-center textFonzi form-control"></textarea>
+                </div>
+                <br />
+
+                <div class="form-grou ">
+                    <h3 class="text-center badge-colors">Productos</h3>
+                    <select class="form-control text-center" id="ProductoAelegir">
+                        <option>--- Seleccione un producto ---</option>
+                        @foreach (var item in ViewBag.Producto)
+                        {
+                            <option class="form-control" value="@item.IdProducto">@item.Nombre</option>
+                        }
+                    </select>
+                </div>
+                <br />
+                <a href="#" id="BtnAgregarProducto" class="btn btn_add btn-success btn-block">Agregar</a>
+                <hr />
+                <table class="table table-bordered" id="first_table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Producto</th>
+                            <th>Categoria</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Total</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="BodyProductos"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><span id="total">0</span> <input class="form-control" type="hidden" id="total_final" name="total_final" value="0" readonly /></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <br />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+        </form>s
+    </div>
+</div>
+<script>
+
+    $('#BtnAgregarProducto').click(function (e) {
+        e.preventDefault();
+        var index = $('#BodyProductos').find('tr').length;
+
+        $.ajax({
+            url: '/Optica/ItemConsutla?id=' + $('#ProductoAelegir').val() + "&index=" + index,
+            type: 'get'
+        }).done(function (response) {
+            $("#BodyProductos").append(response);
+        });
+
+    });
+    function Calcular(ele) {
+        var cantidad = 0, precunit = 0, totalitem = 0;
+        var tr = ele.parentNode.parentNode;
+        var nodes = tr.childNodes;
+
+        for (var x = 0; x < nodes.length; x++) {
+
+            if (nodes[x].firstChild.id == 'cantidad[]') {
+                cantidad = parseFloat(nodes[x].firstChild.value, 10);
+            }
+            if (nodes[x].firstChild.id == 'precunit[]') {
+                precunit = parseFloat(nodes[x].firstChild.value, 10);
+            }
+            if (nodes[x].firstChild.id == 'totalitem[]') {
+                anterior = nodes[x].firstChild.value;
+                totalitem = parseFloat((precunit * cantidad), 10);
+                nodes[x].firstChild.value = totalitem;
+            }
+        }
+        // Resultado final de cada fila ERROR, al editar o eliminar una fila
+        var total = document.getElementById("total");
+        if (total.innerHTML == 'NaN') {
+            total.innerHTML = 0;
+        }
+        total.innerHTML = parseFloat(total.innerHTML) + totalitem - anterior;
+    }
+</script>

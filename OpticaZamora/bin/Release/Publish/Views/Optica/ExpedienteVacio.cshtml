@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "ExpedienteVacio";
+}
+
+<h2>El paciente <strong>@Model.Nombres @Model.Apellidos</strong>  No Cuenta Con un Expediente</h2>
+
+
+<h3>
+    <a href="/Optica/ExpedienteSave?IdPaciente=@Model.IdPaciente">Crear Expediente</a>
+</h3>
