@@ -45,7 +45,7 @@ namespace OpticaZamora.Validation
                 VALIDARDIRECCION(paciente);
 
             }
-            catch(Exception e) { }
+            catch(Exception) { }
         }
         public void validateUpdate(Paciente paciente, ModelStateDictionary modelState)
         {
@@ -78,7 +78,7 @@ namespace OpticaZamora.Validation
                 if (numer == false)
                     VALIDARTELEFONO(paciente);
             }
-            catch(Exception e) { }
+            catch(Exception) { }
         }
         private void VALIDARDIRECCION(Paciente paciente)
         {

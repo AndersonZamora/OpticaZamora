@@ -30,13 +30,13 @@ namespace OpticaZamora.Services
             Context.SaveChanges();
         }
 
-        [Authorize]
-        public IEnumerable<Venta> GetRetornarListaVentas(string tit)
-        {
-            var   query = from p in Context.Ventas.Include(o => o.Producto.Categoria).Include(o => o.Paciente)
-                            select p;
-            return query;
-        }
+        //[Authorize]
+        //public IEnumerable<Venta> GetRetornarListaVentas(string tit)
+        //{
+        //    var   query = from p in Context.Ventas.Include(o => o.Producto.Categoria).Include(o => o.Paciente)
+        //                    select p;
+        //    return query;
+        //}
         public List<Sale> Ventas()
         {
             var ventas = Context.Sales.Include(a => a.Paciente).AsQueryable();

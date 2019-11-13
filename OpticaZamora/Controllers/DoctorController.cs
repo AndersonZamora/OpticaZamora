@@ -24,7 +24,7 @@ namespace OpticaZamora.Controllers
             this.DoctorValidation = DoctorValidation;
         }
 
-        [Authorize] ///LISTA DE DOCTORES
+        [Authorize] ///LISTA DE DOCTORES comprleta
         public ActionResult List(string criterio,string criterio2)
         {
             var doctores = DoctorService.GetRetornarListaDoctor(criterio,criterio2);

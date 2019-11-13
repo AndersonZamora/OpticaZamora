@@ -146,3 +146,4 @@ C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Release\Op
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Release\OpticaZamora.Migrations.Sale.resources
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Release\OpticaZamora.Migrations.Sale1.resources
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Release\OpticaZamora.Migrations.Dato.resources
+C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Release\OpticaZamora.Migrations.Ventas3.resources
