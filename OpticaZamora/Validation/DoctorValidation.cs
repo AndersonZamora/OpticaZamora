@@ -50,7 +50,7 @@ namespace OpticaZamora.Validation
                 ///Password
                 ValidarPasswor(doctor);
             }
-            catch (Exception e){} 
+            catch (Exception){} 
         }
       
         public void ValidateUpdate(Doctor doctor, ModelStateDictionary modelState)
@@ -95,7 +95,7 @@ namespace OpticaZamora.Validation
                     ///Password
                     ValidarPasswor(doctor);
             }
-            catch (Exception e) { }
+            catch (Exception) { }
         }
         public bool IsValid()
         {

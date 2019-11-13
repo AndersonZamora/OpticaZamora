@@ -44,7 +44,7 @@ namespace OpticaZamora.Validation
                 ///Descripcion
                 ValidarDescripcion(producto);
             }
-            catch (Exception e) { }
+            catch (Exception) { }
            
         }
         public void ValidateUpdate(Producto producto, ModelStateDictionary modelState)
@@ -77,7 +77,7 @@ namespace OpticaZamora.Validation
                     ValidarDescripcion(producto);
 
             }
-            catch (Exception e) { }
+            catch (Exception) { }
 
         }
 

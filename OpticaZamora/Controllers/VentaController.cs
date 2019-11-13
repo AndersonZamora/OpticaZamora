@@ -51,7 +51,7 @@ namespace OpticaZamora.Controllers
             ViewBag.Producto = GetProductosDeBaseDeDatos();
 
             ventaService.AddVenta(sale, Detalles);
-            return View("SalesModule");
+            return RedirectToAction("Venta", "Optica");
         }
         [Authorize]
         public ActionResult AddCliente(string IdPaciente)

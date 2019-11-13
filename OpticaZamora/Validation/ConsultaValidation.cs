@@ -12,11 +12,10 @@ namespace OpticaZamora.Validation
 {
     public class ConsultaValidation 
     {
-        
-        private IProdcutoValidation ValidationProducto;
-
-        OpticaContext Context = new OpticaContext();
         private ModelStateDictionary modelState;
+        private IProdcutoValidation ValidationProducto;
+        OpticaContext Context = new OpticaContext();
+     
         public ConsultaValidation(IProdcutoValidation ValidationProducto)
         {
             this.ValidationProducto = ValidationProducto;

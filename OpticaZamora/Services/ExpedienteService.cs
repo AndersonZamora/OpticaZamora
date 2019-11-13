@@ -86,14 +86,14 @@ namespace OpticaZamora.Services
                     return expediente;
                 }
             }
-            catch(Exception e) { }
+            catch(Exception ) { }
 
             return expediente;
         }
         [Authorize]
         public IEnumerable<Expediente> GetRetornarListaExpedientes(string tit, string criterio)
         {
-            Expediente expediente = null;
+            //Expediente expediente = null;
 
             var query = from p in Context.Expediente.Include(a => a.Doctor).Include(a => a.Paciente)
                         select p;

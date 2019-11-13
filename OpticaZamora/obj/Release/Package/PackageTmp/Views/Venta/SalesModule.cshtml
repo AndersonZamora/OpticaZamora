@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "SalesModule";
     var cliente = ViewBag.cliente;
+    var a = Model;
 }
 <div class="container">
     <div class="container-fluid">
@@ -36,7 +37,7 @@
                                                 </td>
                                                 <td>
                                                     <h5>
-                                                        <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" href="/Venta/Expediente?Pacinete_Expediente=@cliente.IdPaciente">Expediente</a>
+                                                        <a class="btn btn-primary" id="expedienteP" data-toggle="modal" data-target="#exampleModal"  href="#" @*href="/Venta/Expediente?Pacinete_Expediente=@cliente.IdPacient*@>Expediente</a>
                                                     </h5>
                                                 </td>
                                             }
@@ -54,7 +55,7 @@
                                                 </td>
                                                 <td>
                                                     <input class="form-control" disabled value="@cliente.NumeroDocumento" />
-                                                    <input name="PacienteId" hidden value="@cliente.IdPaciente" />
+                                                    <input id="paciente" name="PacienteId" hidden  value="@cliente.IdPaciente" />
                                                 </td>
                                             </tr>
                                         }
@@ -64,7 +65,6 @@
                                 <table class="table " id="first_table">
                                     <thead>
                                         <tr>
-                                            @*<th>Id</th>*@
                                             <th class="text-center font-weight-bold">Producto</th>
                                             <th class="text-center font-weight-bold">Categoria</th>
                                             <th class="text-center font-weight-bold">Cantidad</th>
@@ -105,17 +105,18 @@
                 </select>
                 <a href="#" id="BtnAgregarProducto" class="btn btn-success btn-block">Agregar</a>
             </div>
-
+         
         </div>
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <h3>HOLI</h3>
+        <div id="contenido" class="modal-content">
+          
         </div>
     </div>
 </div>
+
 <div class="modal fade bd-example-modal-lg" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-lg-scrollable" role="document">
         <div class="modal-content">
@@ -151,7 +152,7 @@
                                     <td>@pacients.Apellidos</td>
                                     <td>
                                         <a class="btn btn-info" id="AgregarClint" href="/Venta/AddCliente?IdPaciente=@pacients.IdPaciente">Agregar</a>
-                                      
+
                                     </td>
                                 </tr>
                             }
@@ -165,13 +166,13 @@
         </div>
     </div>
 </div>
-
-
 <script>
+  
     $(".js-example-placeholder-single").select2({
         placeholder: "Select a product",
         allowClear: true
     });
+
     $('#BtnAgregarProducto').click(function (e) {
         e.preventDefault();
 
@@ -184,6 +185,18 @@
             $("#BodyProductos").append(response);
         });
     });
+    var idpaciente = document.getElementById("paciente").value;
+    $('#expedienteP').click(function (a) {
+        a.preventDefault();
+        $.ajax({
+            url: '/Venta/Expediente?Pacinete_Expediente=' + idpaciente,
+            type: 'get',
+            success: function (responses) {
+                $('#contenido').html(responses);
+            }
+        });
+    });
+
     function Calcular(ele) {
         var cantidad = 0, precunit = 0, totalitem = 0;
         var tr = ele.parentNode.parentNode;

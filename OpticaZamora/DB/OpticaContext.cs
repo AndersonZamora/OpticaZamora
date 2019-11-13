@@ -16,10 +16,9 @@ namespace OpticaZamora.DB
         public virtual DbSet<Doctor> Doctores { get; set; }
         public virtual DbSet<Paciente> Pacientes { get; set; }
         public virtual DbSet<Producto> Productos { get; set; }
-        public virtual DbSet<Venta> Ventas { get; set; }
         public virtual DbSet<Expediente> Expediente { get; set; }
         public virtual DbSet<DetalleVenta> DetalleVentas { get; set; }
-        public virtual DbSet<SaleDetail> SaleDatails { get; set; }
+ 
         public virtual DbSet<Sale> Sales { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,11 +28,9 @@ namespace OpticaZamora.DB
             modelBuilder.Configurations.Add(new MapDoctor());
             modelBuilder.Configurations.Add(new MapPaciente());
             modelBuilder.Configurations.Add(new MapProducto());
-            modelBuilder.Configurations.Add(new MapVenta());
             modelBuilder.Configurations.Add(new MapExpediente());
             modelBuilder.Configurations.Add(new MapDetalleVenta());
             modelBuilder.Configurations.Add(new MapSale());
-            modelBuilder.Configurations.Add(new MapSaleDetail());
         }
     }
 }

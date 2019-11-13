@@ -30,7 +30,7 @@ namespace OpticaZamora.Validation
             {
                 ValidarNombre(categoria);
             }
-            catch(Exception e){}
+            catch(Exception){}
         }
 
         public void ValidateUpdate(Categoria categoria, ModelStateDictionary modelState)
@@ -46,7 +46,7 @@ namespace OpticaZamora.Validation
                     ///validar Nombre
                     ValidarNombre(categoria);
 
-            }catch(Exception e) { }
+            }catch(Exception) { }
 
         }
 
