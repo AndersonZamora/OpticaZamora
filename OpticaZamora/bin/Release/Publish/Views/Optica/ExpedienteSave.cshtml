@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "ExpedienteSave";
+}
+<style>
+    .bors {
+        border: 1px solid;
+        text-align: center;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .textFonzi {
+        font-size: 18px;
+        
+    }
+    .ocul {
+        display: none;
+    }
+    .form-control {
+        font-size: 20px;
+    }
+
+    .form-grou2 {
+        border: 1px solid;
+        border-radius: 10px;
+    }
+</style>
+<div class="modal-content ">
+    <div class="col-md-12">
+        <form action="/Optica/ExpedienteSave" method="post">
+
+            <h2 class="text-center text-info  ">Consulta</h2>
+            <hr />
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center  ">Codigo de Expediente</h3>
+                <input class="form-control text-center" name="CodigoExpediente" value="@Model.CodigoExpediente" disabled="disabled" />
+            </div>
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center ">Doctor</h3>
+                @Html.DropDownList("DoctorId", ViewBag.Docotres as SelectList, new { @class = "alt  textFonzi text-center form-control" })
+            </div>
+            <div class="form-grou col-md-4">
+                <h3 class="text-info text-center ">Paciente</h3>
+                @Html.DropDownList("PacienteId", ViewBag.Pacientes as SelectList, new { @class = "alt ocul textFonzi text-center form-control" })
+                
+                @foreach (var item in ViewBag.PacinetesDetalle)
+                {
+                    <h3 class="text-center">@item.Nombres @item.Apellidos - <strong>Edad : @item.Edad</strong> Años</h3> 
+                }
+            </div>
+            <div class="col-md-12  form-grou">
+                <br />
+                <h3 class="text-center">Fecha de Consulta</h3>
+                <input type="date" class="form-control" name="Fecha" />
+            </div>
+            <br />
+
+
+            <div class="col-md-12 form-grou pt-5">
+                <table class="table table-bordered">
+                    <tr>
+                        <th></th>
+                        <th class="center">Esfera</th>
+                        <th class="center">Cilindro</th>
+                        <th class="center">Eje</th>
+                    </tr>
+                    <tr>
+                        <td>Ojo Derecho</td>
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo"></span></p>
+                            <input type="range" min="-200.00" id="myRange" max="200.00" name="DEsfera" class="textFonzi bors form-control" value="0.0" />
+
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"><span id="demo2"></span></p>
+                            <input type="range" min="-200.00" id="myRange2" max="200.00" name="DCilindro" class="bors textFonzi form-control" value="0.0" />
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"><span id="demo3"></span></p>
+                            <input type="range" min="-200.00" id="myRange3" max="200.00" name="DEje" class="bors textFonzi form-control" value="0.0" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ojo Izquierdo</td>
+
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo4"></span></p>
+                            <input type="range" min="-200.00" id="myRange4" max="200.00" name="IEsfera" class="bors textFonzi form-control" value="0.0" />
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo5"></span></p>
+                            <input type="range" min="-200.00" id="myRange5" max="200.00" name="ICilindro" class="bors textFonzi form-control" value="0.0" />
+                        </td>
+                        <td>
+                            <p class="pt-4 text-center"> <span id="demo6"></span></p>
+                            <input type="range" min="-200.00" id="myRange6" max="200.00" name="IEje" class="bors textFonzi form-control" value="0.0" />
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="col-md-12  pb-4 form-grou">
+                <br />
+                <h3 class="text-center text-info ">Diagnostico y Recomendacion</h3>
+                <textarea name="Recomendacion" class="text-center textFonzi form-grou2 form-control" placeholder="Diagnostico y Recomendacion"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="content">
+    <div class="container-fluid" style="padding-bottom: 70px;">
+        <div class="container">
+            <div class="col-6">
+                <h3><strong>Productos</strong></h3>
+                <p class="card-title mt-0 text-justify">
+                    Bienvenido al módulo de prductos,
+                    acá puede realizar operaciones como agregar
+                    nuevos productos, ver la lista de
+                    productos y editarlos.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-3 mb-3">
+                    <a class="nav-link " href="/Product/List">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Lista de Productos
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-flat-form">
+            <div class="title-flat-form title-flat-blue"><i class="zmdi zmdi-plus"></i> ACTUALIZAR DATOS DE UN PRODCUTO</div>
+            <form action="/Product/Update" method="POST" autocomplete="off" enctype="multipart/form-data" class="form-paddin AjaxForm" data-form="save">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Codigo del Producto</strong></h4>
+                                <input name="IdProducto" hidden="hidden" value="@Model.IdProducto" />
+                                <input id="CodigoProducto" type="text" name="CodigoProducto" value="@Model.CodigoProducto" class="material-control" placeholder="Máximo 15 Carateres Numerioco o Alfabeticos">
+                                <h4><strong style="color:red">@Html.ValidationMessage("CodigoProducto")</strong></h4>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Nombre</strong></h4>
+                                <input id="nombreProducto" name="Nombre" type="text" value="@Model.Nombre" class="material-control" placeholder="Nombre (Máximo 30 carateres Alfabeticos y  Minimo 4)">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Nombre")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>S/. Precio</strong></h4>
+                                <input name="Precio" type="text" value="@Model.Precio" class="material-control" placeholder="Precio">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Precio")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <h4 class="pl-2"><strong>Stock</strong></h4>
+                                <input name="Stock" type="text" value="@Model.Stock" class="material-control" placeholder="Stock">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Stock")</strong></h4>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <h4 class="pl-2"><strong>Descripcion</strong></h4>
+                            <div class="group-material">
+                                <h4><strong style="color:red">@Html.ValidationMessage("Descripcion")</strong></h4>
+                                <textarea style="font-size:20px;" class="form-control tamaño" name="Descripcion" rows="5" cols="80">@Model.Descripcion</textarea>
+                            </div>
+                        </div>
+                        <style>
+                            .ancho {
+                                font-size: 10px;
+                            }
+                        </style>
+                        <div class="col-xs-12">
+                            <h3 class="all-tittles">CATEGORIA AL QUE PERTENECE EL PRODUCTO</h3><br>
+                        </div>
+                        <div class="col-lg-6 col-md-3">
+                            <div class="group-material">
+                                @Html.DropDownList("CategoriaId", ViewBag.categoria as SelectList, new { id = "CategoriaAelegir", @class = "ancho form-control js-example-placeholder-single js-states" })
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center">
+
+                        <button type="submit" class="btn btn-primary"> Guardar</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(".js-example-placeholder-single").select2({
+        placeholder: "Select a product",
+        allowClear: true
+    });
+</script>

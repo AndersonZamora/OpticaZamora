@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+@using OpticaZamora.Models
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Pacientes</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de pacientes,
+                        acá puede realizar operaciones como agregar nuevos pacientes,
+                        ver la lista de pacientes, actualizar datos de un paciente y
+                        eliminar un paciente del sistema.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 mt-3 mb-3">
+                    <a id="agregarpacienteLink" class="nav-link " href="/Patient/Save">
+                        <i class="material-icons">person_add</i>
+                        Agregar Nuevo Paciente
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .colorLa {
+                color: red;
+            }
+
+            #datatable_length, label {
+                font-size: 18px;
+                color: #1b1b1b;
+            }
+
+            #datatable_length, label, select {
+                border-radius: 10px;
+                background: transparent;
+                padding: 5px;
+                text-align: center;
+            }
+
+            #datatable_filter, label, input[type=search] {
+                border-radius: 10px;
+            }
+        </style>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title mt-0">LISTA DE PACIENTES</h3>
+                    </div>
+                    <br />
+                    <div class="card-body">
+                        <div class="table-responsive pb-5">
+                            <table class="table table-hover" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <td class="text-center font-weight-bold">DOCUMENTO</td>
+                                        <td class="text-center font-weight-bold">N# DOCUMENTO</td>
+                                        <td class="text-center font-weight-bold">NOMBRES</td>
+                                        <td class="text-center font-weight-bold">APELLIDOS</td>
+                                        <td class="text-center font-weight-bold">EDAD</td>
+                                        <td><h5 class="font-weight-bold">Editar</h5></td>
+                                        <td><h5 class="font-weight-bold">Expediente</h5></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var pacients in Model)
+                                    {
+                                        <tr style="background-color:#eeeeee;">
+                                            <td><h4 class="text-center text-dark font-weight-bold">@pacients.TipoDocumento</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">@pacients.NumeroDocumento</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">@pacients.Nombres</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">@pacients.Apellidos</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">@pacients.Edad</h4></td>
+                                            <td>
+                                                <a href="/Patient/Edit?Edit_Patient=@pacients.IdPaciente"><i class=" material-icons">edit</i></a>
+                                            </td>
+                                            <td>
+                                                <a href="/Casefile/Espxdiexte?Paciente_Expediente=@pacients.IdPaciente"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            language: {
+                decimal: ",",
+                processing: "Traitement en cours...",
+                search: "Buscar&nbsp;:",
+                lengthMenu: "Mostrar _MENU_ Entradas",
+                info: "",
+                infoEmpty: "",
+                infoFiltered: "",
+                infoPostFix: "",
+                loadingRecords: "Chargement en cours...",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "Aucune donnée disponible dans le tableau",
+                paginate: {
+                    first: "Previos",
+                    previous: "Previo",
+                    next: "Siguiente",
+                    last: "Dernier"
+                },
+                aria: {
+                    sortAscending: ": activer pour trier la colonne par ordre croissant",
+                    sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                }
+            }
+        });
+    });
+</script>

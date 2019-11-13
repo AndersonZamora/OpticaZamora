@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "SaveConsulta";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <h2>Paciente</h2>
+                <div class="">
+                    @Html.DropDownList("PacienteId", ViewBag.pacientes as SelectList, "Seleccione", new { @class = "alt textFonzi form-control" })
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <h2>Sucursal</h2>
+                <div class="">
+                    @Html.DropDownList("PacienteId", ViewBag.sucursale as SelectList, "Seleccione", new { @class = "alt textFonzi form-control" })
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <h2>Doctor</h2>
+                <div class="">
+                    @Html.DropDownList("PacienteId", ViewBag.doctores as SelectList, "Seleccione", new { @class = "alt textFonzi form-control" })
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-12 col-md-6 col-sm-6">
+                <h3 class="text-center">Fecha y Reseta</h3>
+                <h3>Fecha(dia/mes/año)</h3>
+                <div class=" ">
+                    <input type="date" class="form-control" name="Fecha" />
+                </div>
+                <br />
+                <div class="">
+                    <table class="table">
+                        <tr>
+                            <th></th>
+                            <th class="center">Esfera</th>
+                            <th class="center">Cilindro</th>
+                            <th class="center">Eje</th>
+                        </tr>
+                        <tr>
+                            <td>Ojo Derecho</td>
+
+                            <td>
+                                <style>
+                                    .bors {
+                                        border: 1px solid;
+                                        text-align: center;
+                                    }
+
+                                    .center {
+                                        text-align: center;
+                                    }
+
+                                    .textFonzi {
+                                        font-size: 18px;
+                                    }
+                                </style>
+                                <input type="text" class="textFonzi bors form-control" value=""/>
+                            </td>
+                            <td>
+                                <input type="text" class="bors textFonzi form-control" value=""/>
+                            </td>
+                            <td>
+                                <input type="text" class="bors textFonzi form-control" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ojo Izquierdo</td>
+                            <td>
+                                <input type="text" class="bors textFonzi form-control" value=""/>
+                            </td>
+                            <td>
+                                <input type="text" class="bors textFonzi form-control" value=""/>
+                            </td>
+                            <td>
+                                <input type="text" class="bors textFonzi form-control" value=""/>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+                <hr />
+                <h3>Diagnostico y Recomendacion</h3>
+                <div class="">
+                    <textarea name="diagnostioco" class="text-center textFonzi form-control"></textarea>
+                </div>
+                <br />
+                <div class="">
+                    <form class="suma" name="sumar" action="/Optica/GuardarConsulta" method="post">
+                        <div class="form-grou">
+                            <h3>Productos</h3>
+                            <hr />
+                            <select class="textFonzi form-control" id="ProductoAelegir">
+                                <option class="">--- Seleccione un producto ---</option>
+                                @foreach (var item in ViewBag.Producto)
+                                {
+                                    <option value="@item.IdProducto">@item.Nombre</option>
+                                }
+                            </select>
+                            <br />
+                            <a href="#" id="BtnAgregarProducto" class="btn btn-success btn-block">Agregar</a>
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <td>#</td>
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <td> Total </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="BodyProductos"></tbody>
+                            </table>
+
+                            <div class="total">
+                                <div class="text">
+                                    Suma Total:
+                                </div>
+                                <div class="total"> 0</div>
+                            </div>
+                        </div>
+
+                        <button id="Guardar" class="btn btn-primary btn-block">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#BtnAgregarProducto').click(function (e) {
+        e.preventDefault();
+        var index = $('#BodyProductos').find('tr').length;
+
+        $.ajax({
+            url: '/Optica/ItemConsutla?id=' + $('#ProductoAelegir').val() + "&index=" + index,
+            type: 'get'
+        }).done(function (response) {
+            $("#BodyProductos").append(response);
+        });
+
+    });
+</script>

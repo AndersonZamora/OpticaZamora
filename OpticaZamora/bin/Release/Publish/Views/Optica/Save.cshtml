@@ -1,0 +1,163 @@
+﻿@using OpticaZamora.Models
+@{
+    ViewBag.Title = "Save";
+}
+<div class="content">
+    <div class="container-fluid" style="padding-bottom: 70px;">
+        <div class="container">
+            <div class="col-6">
+                <h3><strong>Administradores</strong></h3>
+                <p class="card-title mt-0 text-justify">
+                    Bienvenido al módulo de administradores,
+                    acá puede realizar operaciones como agregar
+                    nuevos administradores, ver la lista de
+                    administradores y actualizar datos de un administrador.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-3 mb-3">
+                    <a class="nav-link " href="/Optica/Admins">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Lista de Administradores
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-flat-form">
+            <div class="title-flat-form title-flat-blue"><i class="zmdi zmdi-plus"></i> NUEVO ADMINISTRADOR</div>
+            <form action="/Optica/Guardar" method="POST" autocomplete="off" enctype="multipart/form-data" class="form-paddin AjaxForm" data-form="save">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">DATOS BÁSICOS</legend><br>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="group-material">
+                                <span>Tipo de documento</span>
+                                <br />
+                                <label class="control-label"></label>
+                                <br />
+                                @Html.DropDownList("TypeDocument",
+                                    new SelectList(Enum.GetValues(typeof(TipoDocumento))),
+
+                                    new { @class = "ancho form-control" })
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="group-material">
+                                <br />
+                                <input type="text" name="DocumentNumber" value="@Model.DocumentNumber" class="material-control" placeholder="NUMERO DE IDENTIFICACION" pattern="[0-9]{1,17}" maxlength="17" title="Maximo 17 caracteres numericos, sin espacios">
+
+                                <br />
+                                <label>NUMERO DE IDENTIFICACION <strong>@Html.ValidationMessage("DocumentNumber")</strong></label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="text" name="Name" value="@Model.Name" class="material-control" placeholder="Nombres" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,25}" maxlength="25" title="Máximo 25 caracteres">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Nombres (*)<strong>@Html.ValidationMessage("Name")</strong> </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="text" name="Surname" value="@Model.Surname" class="material-control" placeholder="Apellidos" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,25}" maxlength="25" title="Máximo 25 caracteres">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Apellidos (*) <strong>@Html.ValidationMessage("Surname")</strong></label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">E-MAIL Y GÉNERO</legend><br>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="email" name="Email" value="@Model.Email" class="material-control" placeholder="Correo electronico" maxlength="50" title="Maximo 50 caracteres">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Correo electronico</label>
+                            </div>
+                        </div>
+                        <style>
+                            .ancho {
+                                font-size: 17px;
+                            }
+                        </style>
+                        <div class="col-xs-12">
+                            <div class="group-material">
+                                <span><strong>Género</strong></span>
+                                <br />
+                                @Html.DropDownList("Genero",
+                                    new SelectList(Enum.GetValues(typeof(Genero))),
+                                    new { @class = "ancho form-control"})
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">NÚMEROS TELEFÓNICOS</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="text" name="Telephone" value="@Model.Telephone" class="material-control" placeholder="Número de teléfono" pattern="[0-9+]{1,15}" maxlength="15" title="Máximo 15 caracteres numéricos, sin espacios">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Número de teléfono</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="text" name="Mobile" value="@Model.Mobile" class="material-control" placeholder="Número de celular" pattern="[0-9+]{1,15}" maxlength="15" title="Máximo 15 caracteres numéricos, sin espacios">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Número de celular</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">DATOS DE LA CUENTA</legend><br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="text" name="Username" value="@Model.Username" class="material-control" placeholder="Nombre de usuario" required="" pattern="[a-zA-Z0-9]{1,15}" maxlength="15" title="Máximo 15 caracteres">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Nombre de usuario (*)</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="group-material">
+                                <input type="password" name="Password" value="@Model.Password" class="material-control" placeholder="Clave" required="" title="Escriba la clave">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Clave (*)</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+
+                            <div class="group-material">
+                                <span style="color:red;"><strong>Estado</strong></span>
+                                <br />
+                                @Html.DropDownList("Estado",
+                                    new SelectList(Enum.GetValues(typeof(Estado))),
+                                    new { @class = "ancho form-control"})
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <legend class="all-tittles">SUCURSAL EN LA CUAL SE REGISTRARA EL ADMINISTRADOR</legend><br>
+
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="group-material">
+                                @Html.DropDownList("SucursalId", @Session["Sucursal"] as SelectList, new { @class = "ancho form-control" })
+                            </div>
+                        </div>
+                    </div>
+                <p class="text-center">
+                    <button type="reset" class="btn btn-info" style="margin-right: 20px;">Limpiar</button>
+                    <button type="submit" class="btn btn-primary"> Guardar</button>
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Expediente";
+    Layout = null;
+    var a = Model;
+
+}
+<div class="row">
+    @if (a != null)
+    {
+        <div class="col-md-12 border-right pt-4">
+            <div class="card card-plain">
+                <div class="card-header card-header-primary">
+                    <h3 class="card-title mt-0">DATOS DEL PACIENTE</h3>
+                </div>
+            </div>
+            <div class="card-collapse">
+                <h3 class="pl-4">Nombres y Apellidos:  <strong>@Model.Paciente.Nombres @Model.Paciente.Apellidos</strong></h3>
+                <h3 class="pl-4">DNI: <strong>@Model.Paciente.NumeroDocumento</strong></h3>
+                <h3 class="pl-4">Recomendacion: <strong>@Model.Recomendacion</strong></h3>
+            </div>
+        </div>
+    }
+    <div class="col-md-12 border-right pt-4">
+        <div class="card-collapse">
+            <div class="card card-plain">
+                <div class="card-header ">
+                    @if (a == null)
+                    {
+                        <h2>No hay expediente <strong><a href="/Casefile/EspxdiexteSave?Save_Espxdiexte_Paciente=" target="_blank" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Agregar Expedeiente</a></strong></h2>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

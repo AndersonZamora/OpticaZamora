@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Expediente";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Expedientes</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de Expedientes,acá puede ver laslistas de
+                        Expedientes de cada paciente.
+                    </p>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-6 mt-3 mb-3">
+                    <a class="nav-link" href="/Optica/ExpedienteSave">
+                        <i class="material-icons">person_add</i>
+                        Agregar Nuevo Expediente
+                    </a>
+                </div>
+            </div>*@
+        </div>
+        <style>
+            .colorLa {
+                color: red;
+            }
+        </style>
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">BUSQUEDA</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-12 mb-12">
+                                <label class="colorLa text-center" for="firstName">¿Qué Expediente estas buscando?</label>
+                                <input type="text" name="criterio" class="form-control"  placeholder="Escribe el Nombre, Apellido o DNI del paciente. Numero de Expediente -  Nombre del Doctor" maxlength="30" required>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <button class="btn btn-outline-primary btn-sm btn-block" type="submit">BUSCAR</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title mt-0">LISTA DE EXPEDIENTES</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                    <tr>
+                                        <td>Codigo de Expediente</td>
+                                        <td>DNI-PACIENTE</td>
+                                        <td>Paciente</td>
+                                        <td>Doctor</td>
+                                        <td>Fecha</td>
+                                        <td>Detalle</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var expediente in Model)
+                                    {
+                                        <tr>
+                                            <td>@expediente.CodigoExpediente</td>
+                                            <td>@expediente.Paciente.NumeroDocumento</td>
+                                            <td>@expediente.Paciente.Nombres @expediente.Paciente.Apellidos</td>
+                                            <td>@expediente.Doctor.Nombres</td>
+                                            <td>@expediente.Fecha</td>
+                                            <td>
+                                               <a href="/Optica/ExpedientePacinete?IdPaciente=@expediente.Paciente.IdPaciente"><i class="material-icons">edit</i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

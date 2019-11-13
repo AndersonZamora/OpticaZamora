@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Productos</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de Productos,
+                        acá puede realizar operaciones como agregar nuevos Productos,
+                        ver la lista de Productos, actualizar datos de un Productos.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 mt-3 mb-3">
+                    <a id="agregarpacienteLink" class="nav-link " href="/Product/Save">
+                        <i class="material-icons">person_add</i>
+                        Agregar Nuevo Producto
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .colorLa {
+                color: red;
+            }
+
+            #datatable_length, label {
+                font-size: 18px;
+                color: #1b1b1b;
+            }
+
+            #datatable_length, label, select {
+                border-radius: 10px;
+                background: transparent;
+                padding: 5px;
+                text-align: center;
+            }
+
+            #datatable_filter, label, input[type=search] {
+                border-radius: 10px;
+            }
+        </style>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title mt-0">LISTA DE PRODUCTOS</h3>
+                    </div>
+                    <br />
+                    <div class="card-body">
+                        <div class="table-responsive pb-5">
+                            <table class="table table-hover" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <td class="text-center font-weight-bold">CODIGO DEL PRODUCTO</td>
+                                        <td class="text-center font-weight-bold">NOMBRE</td>
+                                        <td class="text-center font-weight-bold">PRECIO</td>
+                                        <td class="text-center font-weight-bold">STOCK</td>
+                                        <td class="text-center font-weight-bold">Categoria</td>
+                                        <td><h5 class="font-weight-bold">Editar</h5></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var producto in Model)
+                                    {
+                                        <tr style="background-color:#eeeeee;">
+                                            <td><h4 class="text-center text-dark font-weight-bold">@producto.CodigoProducto</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">@producto.Nombre</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">S/. @producto.Precio</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">@producto.Stock</h4></td>
+                                            <td><h4 class="text-center text-dark font-weight-bold">@producto.Categoria.Nombre</h4></td>
+                                            <td>
+                                                <a href="/Product/Edit?Product_Edit=@producto.IdProducto"><i class=" material-icons">edit</i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            language: {
+                decimal: ",",
+                processing: "Traitement en cours...",
+                search: "Buscar&nbsp;:",
+                lengthMenu: "Mostrar _MENU_ Entradas",
+                info: "",
+                infoEmpty: "",
+                infoFiltered: "",
+                infoPostFix: "",
+                loadingRecords: "Chargement en cours...",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "Aucune donnée disponible dans le tableau",
+                paginate: {
+                    first: "Previos",
+                    previous: "Previo",
+                    next: "Siguiente",
+                    last: "Dernier"
+                },
+                aria: {
+                    sortAscending: ": activer pour trier la colonne par ordre croissant",
+                    sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                }
+            }
+        });
+    });
+</script>

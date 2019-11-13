@@ -1,0 +1,8 @@
+﻿
+@{
+    Layout = null;
+
+
+}
+
+<tr><td>@Model.Nombre <input name="NombreProducto" hidden="hidden" value="@Model.Nombre"/> <input hidden="hidden"  name="Detalles[@ViewBag.Index].ProductoNombre" value="@Model.Nombre"/> <input hidden="hidden" name="ProductoId" value="@Model.IdProducto"/></td><td>@Model.Categoria.Nombre <input hidden="hidden" name="Detalles[@ViewBag.Index].ProductoCategoria" value="@Model.Categoria.Nombre"/> <input name="CategoriaProducto" hidden="hidden" value="@Model.Categoria.Nombre"/></td><td><input class="form-control" type="number" min="1" max="@Model.Stock" id="cantidad[]" onchange="Calcular(this);" name="Detalles[@ViewBag.Index].Cantidad" value="0" /> <input type="hidden" name="Detalles[@ViewBag.Index].ProductoId" value="@Model.IdProducto" /></td><td><input class="form-control" type="text"disabled="disabled"  id="precunit[]" onchange="Calcular(this);" name="Detalles[@ViewBag.Index].ProductoPrecio" value="@Model.Precio" /></td><td><input class="form-control" name="Detalles[@ViewBag.Index].Total" type="hidden" id="totalitem[]" value="0"><input class="form-control" disabled="disabled" type="text"  value="@Model.Stock"/></td><td><a></a></td></tr>

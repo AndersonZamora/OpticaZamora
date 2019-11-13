@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "ListaDeCategorias";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3><strong>Categorias</strong></h3>
+                    <p class="card-title mt-0 text-justify">
+                        Bienvenido al módulo de Categorias,
+                        acá puede realizar operaciones como agregar nuevas Categorias,
+                        ver la lista de Categorias, actualizar datos de una Categoria.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 mt-3 mb-3">
+                    <a id="agregarpacienteLink" class="nav-link " href="/Category/Save">
+                        <i class="material-icons">person_add</i>
+                        Agregar Nueva Categoria
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .colorLa {
+                color: red;
+            }
+
+            #datatable_length, label {
+                font-size: 18px;
+                color: #1b1b1b;
+            }
+
+            #datatable_length, label, select {
+                border-radius: 10px;
+                background: transparent;
+                padding: 5px;
+                text-align: center;
+            }
+
+            #datatable_filter, label, input[type=search] {
+                border-radius: 10px;
+            }
+        </style>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-primary">
+                        <h3 class="card-title mt-0">LISTA DE Categorias</h3>
+                    </div>
+                    <br />
+                    <div class="card-body">
+                        <div class="table-responsive pb-5">
+                            <table class="table table-hover" id="datatable">
+                                <thead>
+                                    <tr>
+
+                                        <td class="text-center font-weight-bold">CATEGORIAS</td>
+                                        <td><h5 class="font-weight-bold">Editar</h5></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var categoria in Model)
+                                    {
+                                        <tr style="background-color:#eeeeee;">
+
+                                            <td><h4 class="text-center text-dark font-weight-bold">@categoria.Nombre</h4></td>
+                                            <td>
+                                                <a href="/Category/Edit?Edit_Category=@categoria.IdCategoria"><i class=" material-icons">edit</i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            language: {
+                decimal: ",",
+                processing: "Traitement en cours...",
+                search: "Buscar&nbsp;:",
+                lengthMenu: "Mostrar _MENU_ Entradas",
+                info: "",
+                infoEmpty: "",
+                infoFiltered: "",
+                infoPostFix: "",
+                loadingRecords: "Chargement en cours...",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "Aucune donnée disponible dans le tableau",
+                paginate: {
+                    first: "Previos",
+                    previous: "Previo",
+                    next: "Siguiente",
+                    last: "Dernier"
+                },
+                aria: {
+                    sortAscending: ": activer pour trier la colonne par ordre croissant",
+                    sortDescending: ": activer pour trier la colonne par ordre décroissant"
+                }
+            }
+        });
+    });
+</script>
