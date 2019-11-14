@@ -1,0 +1,223 @@
+USE [ProyOpticaZamora2]
+GO
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[__MigrationHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ContextKey] [nvarchar](300) NOT NULL,
+	[Model] [varbinary](max) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC,
+	[ContextKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Categoria]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categoria](
+	[IdCategoria] [nvarchar](128) NOT NULL,
+	[Nombre] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Categoria] PRIMARY KEY CLUSTERED 
+(
+	[IdCategoria] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[DetalleVenta]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetalleVenta](
+	[Id] [nvarchar](128) NOT NULL,
+	[VentaId] [nvarchar](max) NULL,
+	[Cantidad] [nvarchar](max) NULL,
+	[ProductoId] [nvarchar](max) NULL,
+	[ProductoNombre] [nvarchar](max) NULL,
+	[ProductoCategoria] [nvarchar](max) NULL,
+	[ProductoPrecio] [nvarchar](max) NULL,
+	[Total] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.DetalleVenta] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Doctor]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Doctor](
+	[IdDoctor] [nvarchar](128) NOT NULL,
+	[Codigo] [nvarchar](max) NULL,
+	[Nombres] [nvarchar](max) NULL,
+	[Apellidos] [nvarchar](max) NULL,
+	[Celular] [nvarchar](max) NULL,
+	[Especialidad] [nvarchar](max) NULL,
+	[Username] [nvarchar](max) NULL,
+	[Password] [nvarchar](max) NULL,
+	[Estado] [int] NOT NULL,
+	[TipoDocumento] [int] NOT NULL DEFAULT ((0)),
+	[NumeroDocumento] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Doctor] PRIMARY KEY CLUSTERED 
+(
+	[IdDoctor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Expediente]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Expediente](
+	[IdExpediente] [nvarchar](128) NOT NULL,
+	[CodigoExpediente] [nvarchar](max) NULL,
+	[Fecha] [datetime] NOT NULL,
+	[DEsfera] [nvarchar](max) NULL,
+	[DCilindro] [nvarchar](max) NULL,
+	[DEje] [nvarchar](max) NULL,
+	[IEsfera] [nvarchar](max) NULL,
+	[ICilindro] [nvarchar](max) NULL,
+	[IEje] [nvarchar](max) NULL,
+	[Recomendacion] [nvarchar](max) NULL,
+	[DoctorId] [nvarchar](128) NOT NULL,
+	[PacienteId] [nvarchar](128) NOT NULL,
+	[AnchuraTotal] [nvarchar](max) NULL,
+	[Puente] [nvarchar](max) NULL,
+	[Calibre] [nvarchar](max) NULL,
+	[LongitudVarilla] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Expediente] PRIMARY KEY CLUSTERED 
+(
+	[IdExpediente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Paciente]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Paciente](
+	[IdPaciente] [nvarchar](128) NOT NULL,
+	[TipoDocumento] [int] NOT NULL,
+	[NumeroDocumento] [nvarchar](max) NULL,
+	[Nombres] [nvarchar](max) NULL,
+	[Apellidos] [nvarchar](max) NULL,
+	[Correo] [nvarchar](max) NULL,
+	[Direccion] [nvarchar](max) NULL,
+	[TipoGenero] [int] NOT NULL,
+	[Celular] [nvarchar](max) NULL,
+	[Edad] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Paciente] PRIMARY KEY CLUSTERED 
+(
+	[IdPaciente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Producto]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Producto](
+	[IdProducto] [nvarchar](128) NOT NULL,
+	[CodigoProducto] [nvarchar](max) NULL,
+	[Nombre] [nvarchar](max) NULL,
+	[Precio] [nvarchar](max) NULL,
+	[Stock] [int] NOT NULL,
+	[Descripcion] [nvarchar](max) NULL,
+	[CategoriaId] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.Producto] PRIMARY KEY CLUSTERED 
+(
+	[IdProducto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Sale]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Sale](
+	[IdSALE] [nvarchar](128) NOT NULL,
+	[PacienteId] [nvarchar](128) NOT NULL,
+	[FechaVenta] [datetime] NOT NULL,
+	[Total] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Sale] PRIMARY KEY CLUSTERED 
+(
+	[IdSALE] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 13/11/2019 22:30:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuario](
+	[IdUsuario] [nvarchar](128) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Surname] [nvarchar](max) NULL,
+	[TypeDocument] [int] NOT NULL,
+	[DocumentNumber] [int] NOT NULL,
+	[DateBirth] [datetime] NOT NULL,
+	[Address] [nvarchar](max) NULL,
+	[Telephone] [int] NOT NULL,
+	[Mobile] [int] NOT NULL,
+	[Email] [nvarchar](max) NULL,
+	[Username] [nvarchar](max) NULL,
+	[Password] [nvarchar](max) NULL,
+	[Rol] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Usuario] PRIMARY KEY CLUSTERED 
+(
+	[IdUsuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[Expediente]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Expediente_dbo.Doctor_DoctorId] FOREIGN KEY([DoctorId])
+REFERENCES [dbo].[Doctor] ([IdDoctor])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Expediente] CHECK CONSTRAINT [FK_dbo.Expediente_dbo.Doctor_DoctorId]
+GO
+ALTER TABLE [dbo].[Expediente]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Expediente_dbo.Paciente_PacienteId] FOREIGN KEY([PacienteId])
+REFERENCES [dbo].[Paciente] ([IdPaciente])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Expediente] CHECK CONSTRAINT [FK_dbo.Expediente_dbo.Paciente_PacienteId]
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Producto_dbo.Categoria_CategoriaId] FOREIGN KEY([CategoriaId])
+REFERENCES [dbo].[Categoria] ([IdCategoria])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Producto] CHECK CONSTRAINT [FK_dbo.Producto_dbo.Categoria_CategoriaId]
+GO
+ALTER TABLE [dbo].[Sale]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Sale_dbo.Paciente_PacienteId] FOREIGN KEY([PacienteId])
+REFERENCES [dbo].[Paciente] ([IdPaciente])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Sale] CHECK CONSTRAINT [FK_dbo.Sale_dbo.Paciente_PacienteId]
+GO
