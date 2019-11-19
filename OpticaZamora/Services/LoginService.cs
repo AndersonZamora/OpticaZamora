@@ -12,16 +12,10 @@ namespace OpticaZamora.Services
     public class LoginService : ILoginService
     {
         private OpticaContext Context;
-        public LoginService()
+        public LoginService(OpticaContext Context)
         {
-            Context = new OpticaContext();
+            this.Context = Context;
         }
-
-        //public Admin ObenerAdmin(Admin admin)
-        //{
-        //    return Context.Admins.Where(s => s.Username == admin.Username
-        //            && s.Password == admin.Password).FirstOrDefault();
-        //}
 
         public Doctor ObenerAdmin(Doctor doctor)
         {

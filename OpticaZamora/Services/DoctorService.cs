@@ -21,16 +21,23 @@ namespace OpticaZamora.Services
             this.Context = Context;
         }
         [Authorize]
-        public void AddDoctor(Doctor doctor)
+        public bool AddDoctor(Doctor doctor)
         {
             Context.Doctores.Add(doctor);
             Context.SaveChanges();
+            return true;
         }
         [Authorize]
         public Doctor DoctorModificar(string IdDoctor)
         {
-            var doctores = Context.Doctores.Where(o => o.IdDoctor == IdDoctor).First();
-            return doctores;
+            Doctor doctor = null;
+            try
+            {
+                doctor = Context.Doctores.Where(o => o.IdDoctor == IdDoctor).First();
+                return doctor;
+            }
+            catch (Exception) { }
+            return doctor;
         }
         [Authorize]
         public IEnumerable<Doctor> GetRetornarListaDoctor(string criterio, string criterio2)
@@ -42,7 +49,7 @@ namespace OpticaZamora.Services
             return query.ToList();
         }
         [Authorize]
-        public void UpdateDoctor(Doctor doctor)
+        public bool UpdateDoctor(Doctor doctor)
         {
             var DoctorBD = Context.Doctores.Where(o => o.IdDoctor == doctor.IdDoctor).First();
             DoctorBD.Codigo = doctor.Codigo;
@@ -55,6 +62,7 @@ namespace OpticaZamora.Services
             DoctorBD.Password = doctor.Password;
             DoctorBD.Estado = doctor.Estado;
             Context.SaveChanges();
+            return true;
         }
         [Authorize]
         public void logOff()

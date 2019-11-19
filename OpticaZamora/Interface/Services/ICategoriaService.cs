@@ -9,10 +9,10 @@ namespace OpticaZamora.Interface
 {
     public interface ICategoriaService
     {
-        IEnumerable<Categoria> GetRetornarListaCategoria();
-        void AddCategoria(Categoria categoria);
+        IEnumerable<Categoria> GetRetornarListaCategoria(string tit);
+        Boolean AddCategoria(Categoria categoria);
         Categoria CategoriaModificar(string IdCategoria);
-        void UpdateCategoria(Categoria categoria);
+        Boolean UpdateCategoria(Categoria categoria);
         void logOff();
 
 

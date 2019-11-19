@@ -63,6 +63,5 @@ namespace OpticaZamora.Controllers
 
             ViewBag.Pacientes = new SelectList(paciente, "IdPaciente", "Nombres");
         }
-
     }
 }

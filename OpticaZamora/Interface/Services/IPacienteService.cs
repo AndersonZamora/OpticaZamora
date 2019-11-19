@@ -10,10 +10,10 @@ namespace OpticaZamora.Interface
     public interface IPacienteService
     {
         IEnumerable<Paciente> GetRetornarListasPaciente(string titulo);
-        Paciente GetRetornarPaciente(string IdPaciente);
-        void AddPaciente(Paciente paciente);
+        //Paciente GetRetornarPaciente(string IdPaciente);
+        Boolean AddPaciente(Paciente paciente);
         Paciente PacienteModificar(string IdPaciente);
-        void UpdatePaciente(Paciente paciente);
+        Boolean UpdatePaciente(Paciente paciente);
         void LogOff();
 
     }

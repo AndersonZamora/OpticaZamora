@@ -19,11 +19,11 @@ namespace OpticaZamora.Services
             this.Context = Context;
         }
         [Authorize]
-        public void AddProducto(Producto producto)
+        public bool AddProducto(Producto producto)
         {
-            
             Context.Productos.Add(producto);
             Context.SaveChanges();
+            return true;
         }
         [Authorize]
         public IEnumerable<Producto> GetRetornarListaProducto(string criterio)
@@ -39,11 +39,17 @@ namespace OpticaZamora.Services
         [Authorize]
         public Producto ProductoModificar(string IdProducto)
         {
-            var productos = Context.Productos.Where(o => o.IdProducto == IdProducto).First();
+            Producto productos = null; 
+            try
+            {
+                productos = Context.Productos.Where(o => o.IdProducto == IdProducto).First();
+                return productos;
+            }
+            catch (Exception) { }
             return productos;
         }
         [Authorize]
-        public void UpdateProducto(Producto producto)
+        public bool UpdateProducto(Producto producto)
         {
             var ProductoBD = Context.Productos.Where(o => o.IdProducto == producto.IdProducto).First();
 
@@ -54,6 +60,7 @@ namespace OpticaZamora.Services
             ProductoBD.Descripcion = producto.Descripcion;
             ProductoBD.CategoriaId = producto.CategoriaId;
             Context.SaveChanges();
+            return true;
         }
     }
 }

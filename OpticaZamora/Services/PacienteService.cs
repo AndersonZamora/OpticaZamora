@@ -14,16 +14,9 @@ namespace OpticaZamora.Services
     public class PacienteService : IPacienteService
     {
         private OpticaContext Context;
-
         public PacienteService(OpticaContext Context)
         {
             this.Context = Context;
-        }
-        [Authorize]
-        public Paciente GetRetornarPaciente(string IdPaciente)
-        {
-            var paciente = Context.Pacientes.Where(p => p.IdPaciente == IdPaciente).First();
-            return paciente;
         }
         [Authorize]
         public IEnumerable<Paciente> GetRetornarListasPaciente(string titulo)
@@ -42,19 +35,26 @@ namespace OpticaZamora.Services
             return query;
         }
         [Authorize]
-        public void AddPaciente(Paciente paciente)
+        public bool AddPaciente(Paciente paciente)
         {
             Context.Pacientes.Add(paciente);
             Context.SaveChanges();
+            return true;
         }
         [Authorize]
         public Paciente PacienteModificar(string IdPaciente)
         {
-            var paciente = Context.Pacientes.Where(p => p.IdPaciente == IdPaciente).First();
+            Paciente paciente = null;
+            try
+            {
+                paciente = Context.Pacientes.Where(p => p.IdPaciente == IdPaciente).First();
+                return paciente;
+            }
+            catch (Exception) { }
             return paciente;
         }
         [Authorize]
-        public void UpdatePaciente(Paciente paciente)
+        public  bool UpdatePaciente(Paciente paciente)
         {
             var PacienteDB = Context.Pacientes.Where(o => o.IdPaciente == paciente.IdPaciente).First();
 
@@ -68,6 +68,7 @@ namespace OpticaZamora.Services
             PacienteDB.TipoGenero = paciente.TipoGenero;
             PacienteDB.Celular = paciente.Celular;
             Context.SaveChanges();
+            return true;
         }
         [Authorize]
         public void LogOff()
