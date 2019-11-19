@@ -20,24 +20,12 @@ namespace OpticaZamora.Controllers
         
         private IVentaService VentaService;
         private IExitService exit;
-        public OpticaController(
-            IExitService exit,
-            IVentaService VentaService
-            )
+        public OpticaController(IExitService exit,IVentaService VentaService)
         {
-            ///
+            ///Deslogeo
             this.exit = exit;
             ///Venta
             this.VentaService = VentaService;
-        }
-        private Boolean Acceso()
-        {
-            ViewBag.UsuarioLogeado = HttpContext.Session["UsuarioPermitido"];
-            if (ViewBag.UsuarioLogeado == "Sys")
-            {
-                return true;
-            }
-            return false;
         }
         [Authorize]
         public ActionResult Index()
@@ -48,7 +36,6 @@ namespace OpticaZamora.Controllers
         public ActionResult Venta()
         {
             var ventas = VentaService.Ventas();
-
             return View("Venta", ventas);
         }
         public ActionResult logOff()

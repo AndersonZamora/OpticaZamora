@@ -13,30 +13,23 @@ namespace OpticaZamora.Services
     public class VentaService : IVentaService
     {
         private OpticaContext Context;
-        public VentaService()
+        public VentaService(OpticaContext Context)
         {
-            Context = new OpticaContext();
+            this.Context = Context;
         }
-
-        public void AddVenta(Sale sale, List<DetalleVenta> Detalles)
+        public bool AddVenta(Sale sale, List<DetalleVenta> Detalles)
         {
+            if(sale.IdSALE == null)
+                return false;
             foreach (var dvent in Detalles)
             {
                 dvent.VentaId = sale.IdSALE;
             }
-
             Context.DetalleVentas.AddRange(Detalles);
             Context.Sales.Add(sale);
             Context.SaveChanges();
+            return true;
         }
-
-        //[Authorize]
-        //public IEnumerable<Venta> GetRetornarListaVentas(string tit)
-        //{
-        //    var   query = from p in Context.Ventas.Include(o => o.Producto.Categoria).Include(o => o.Paciente)
-        //                    select p;
-        //    return query;
-        //}
         public List<Sale> Ventas()
         {
             var ventas = Context.Sales.Include(a => a.Paciente).AsQueryable();

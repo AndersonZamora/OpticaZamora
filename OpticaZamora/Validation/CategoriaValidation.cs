@@ -13,16 +13,12 @@ namespace OpticaZamora.Validation
     {
         private ModelStateDictionary modelState;
         private IValidarCampos ValidarCampos;
-        OpticaContext context = new OpticaContext();
-        public CategoriaValidation(IValidarCampos ValidarCampos)
+        OpticaContext context;
+        public CategoriaValidation(IValidarCampos ValidarCampos, OpticaContext context)
         {
             this.ValidarCampos = ValidarCampos;
+            this.context = context;
         }
-        public bool IsValid()
-        {
-            return modelState.IsValid;
-        }
-
         public void Validate(Categoria categoria, ModelStateDictionary modelState)
         {
             this.modelState = modelState;
@@ -32,24 +28,19 @@ namespace OpticaZamora.Validation
             }
             catch(Exception){}
         }
-
         public void ValidateUpdate(Categoria categoria, ModelStateDictionary modelState)
         {
             var id = categoria.IdCategoria;
             var cate = context.Categorias.Where(o => o.IdCategoria == id);
             this.modelState = modelState;
-
             try
             {
                 var nom = cate.Any(o => o.Nombre == categoria.Nombre);
                 if (nom == false)
                     ///validar Nombre
                     ValidarNombre(categoria);
-
             }catch(Exception) { }
-
         }
-
         void ValidarNombre(Categoria categoria)
         {
             var categ = context.Categorias;
@@ -67,6 +58,10 @@ namespace OpticaZamora.Validation
 
             if (categ.Any(o => o.Nombre == categoria.Nombre))
                 modelState.AddModelError("Nombre", "Ya Exite Esta Categoria");
+        }
+        public bool IsValid()
+        {
+            return modelState.IsValid;
         }
 
     }

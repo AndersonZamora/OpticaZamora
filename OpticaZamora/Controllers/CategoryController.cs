@@ -22,7 +22,7 @@ namespace OpticaZamora.Controllers
         [Authorize] ///LISTA CAREGORIA
         public ActionResult List(string criterio)
         {
-            var categorias = CategoriaService.GetRetornarListaCategoria();
+            var categorias = CategoriaService.GetRetornarListaCategoria(criterio);
             return View("List", categorias);
         }
         [Authorize]
@@ -36,7 +36,7 @@ namespace OpticaZamora.Controllers
         public ActionResult Save(Categoria categoria)
         {
             CategoriaValidation.Validate(categoria, ModelState);
-            if (!ModelState.IsValid)
+            if (!CategoriaValidation.IsValid())
                 return View("Save", categoria);
 
             CategoriaService.AddCategoria(categoria);
@@ -52,7 +52,7 @@ namespace OpticaZamora.Controllers
         public ActionResult Update(Categoria categoria)
         {
             CategoriaValidation.ValidateUpdate(categoria, ModelState);
-            if (!ModelState.IsValid)
+            if (!CategoriaValidation.IsValid())
                 return View("Edit", categoria);
 
             CategoriaService.UpdateCategoria(categoria);

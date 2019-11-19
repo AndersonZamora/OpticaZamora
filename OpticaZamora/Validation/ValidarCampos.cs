@@ -10,6 +10,7 @@ namespace OpticaZamora.Validation
 {
     public class ValidarCampos : IValidarCampos
     {
+       
         public bool validarCaractes(string numString)
         {
             char[] charArr = numString.ToCharArray();
@@ -19,7 +20,6 @@ namespace OpticaZamora.Validation
                 {
                     return false;
                 }
-                //  modelState.AddModelError("Codigo", "Ingrese Un codigo valido");
             }
             return true;
         }

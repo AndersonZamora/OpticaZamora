@@ -42,7 +42,7 @@ namespace OpticaZamora.Controllers
         public ActionResult Save(Doctor doctor)
         {
             DoctorValidation.Validate(doctor, ModelState);
-            if (!ModelState.IsValid)
+            if (!DoctorValidation.IsValid())
                 return View("Save", doctor);
 
             DoctorService.AddDoctor(doctor);
@@ -59,7 +59,7 @@ namespace OpticaZamora.Controllers
         {
             string IdDoctor = doctor.IdDoctor;
             DoctorValidation.ValidateUpdate(doctor, ModelState);
-            if (!ModelState.IsValid)
+            if (!DoctorValidation.IsValid())
                 return View("Edit", doctor);
 
             DoctorService.UpdateDoctor(doctor);

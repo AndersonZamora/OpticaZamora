@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpticaZamora", "OpticaZamor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasSeleniunOpticaZamora", "PruebasSeleniunOpticaZamora\PruebasSeleniunOpticaZamora.csproj", "{9F518C9B-C6FA-46BE-966C-766660523B20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasUnitariasOpticaZamora", "PruebasUnitariasOpticaZamora\PruebasUnitariasOpticaZamora.csproj", "{8129A5B2-FCCD-44C6-8AA3-040AB816D7AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9F518C9B-C6FA-46BE-966C-766660523B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F518C9B-C6FA-46BE-966C-766660523B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F518C9B-C6FA-46BE-966C-766660523B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8129A5B2-FCCD-44C6-8AA3-040AB816D7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8129A5B2-FCCD-44C6-8AA3-040AB816D7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8129A5B2-FCCD-44C6-8AA3-040AB816D7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8129A5B2-FCCD-44C6-8AA3-040AB816D7AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,8 +10,8 @@ namespace OpticaZamora.Interface
     public interface IProdcutoService
     {
         IEnumerable<Producto> GetRetornarListaProducto(string criterio);
-        void AddProducto(Producto producto);
+        Boolean AddProducto(Producto producto);
         Producto ProductoModificar(string IdProducto);
-        void UpdateProducto(Producto producto);
+        Boolean UpdateProducto(Producto producto);
     }
 }

@@ -39,12 +39,6 @@ namespace OpticaZamora.Controllers
                 Manager.SetNombreUsuario(usuarioDB.Username);
                 if (usuarioDB.Rol == "Sys")
                 {
-                    HttpContext.Session["UsuarioPermitido"] = usuarioDB.Rol;
-                    ViewBag.UsuarioLogeado = HttpContext.Session["UsuarioPermitido"];
-
-                    HttpContext.Session["UsuarioUnico"] = usuarioDB.Username;
-                    ViewBag.UsuarioUnico = HttpContext.Session["UsuarioUnico"];
-
                     Manager.AutenticacionUsername(sys.Username, false);
                     return RedirectToAction("Index", "Optica");
                 }

@@ -16,48 +16,56 @@ namespace OpticaZamora.Services
 
         private OpticaContext Context;
        
-        public CategoriaService()
+        public CategoriaService(OpticaContext Context)
         {
-            Context = new OpticaContext();
+            this.Context = Context;
         }
         [Authorize]
-        public void AddCategoria(Categoria categoria)
+        public bool AddCategoria(Categoria categoria)
         {
             Context.Categorias.Add(categoria);
             Context.SaveChanges();
+            return true;
         }
         [Authorize]
         public Categoria CategoriaModificar(string IdCategoria)
         {
-            var categorias = Context.Categorias.Where(o => o.IdCategoria == IdCategoria).First();
+            Categoria categorias = null;
+            try
+            {
+                categorias = Context.Categorias.Where(o => o.IdCategoria == IdCategoria).First();
+                return categorias;
+            }
+            catch (Exception) { }
             return categorias;
         }
         [Authorize]
-        public IEnumerable<Categoria> GetRetornarListaCategoria()
+        public IEnumerable<Categoria> GetRetornarListaCategoria(string tit)
         {
             var query = from p in Context.Categorias
                         select p;
 
-            //if (!string.IsNullOrEmpty(tit))
-            //{
-            //    query = from p in query
-            //            where p.Nombre.ToUpper().Contains(tit.ToUpper())    
-            //            select p;
-            //}
+            if (!string.IsNullOrEmpty(tit))
+            {
+                query = from p in query
+                        where p.Nombre.ToUpper().Contains(tit.ToUpper())
+                        select p;
+            }
             return query;
         }
         [Authorize]
-        public void logOff()
-        {
-            FormsAuthentication.SignOut();
-        }
         [Authorize]
-        public void UpdateCategoria(Categoria categoria)
+        public bool UpdateCategoria(Categoria categoria)
         {
             var CategoriaBD = Context.Categorias.Where(o => o.IdCategoria == categoria.IdCategoria).First();
 
             CategoriaBD.Nombre = categoria.Nombre;
             Context.SaveChanges();
+            return true;
+        }
+        public void logOff()
+        {
+            FormsAuthentication.SignOut();
         }
     }
 }

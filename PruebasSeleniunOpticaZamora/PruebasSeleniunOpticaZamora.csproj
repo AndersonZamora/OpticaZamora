@@ -92,18 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\DoctorControllerTest.cs" />
-    <Compile Include="Controller\PacienteControllerTest.cs" />
-    <Compile Include="Controller\ProductoControllerTest.cs" />
     <Compile Include="LinkGlobal\Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PruebasUnitarias\CategoriaPrueba\CategoriaControllerTest.cs" />
-    <Compile Include="PruebasUnitarias\DoctorPrueba\DoctorControllerTest.cs" />
-    <Compile Include="PruebasUnitarias\ProductoPrueba\ProductoControllerTest.cs" />
     <Compile Include="Seleniun\OpticaTest.cs" />
-    <Compile Include="Servicios\DoctorServiceTest.cs" />
-    <Compile Include="Servicios\PacienteServiceTest.cs" />
-    <Compile Include="Servicios\ProductoServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

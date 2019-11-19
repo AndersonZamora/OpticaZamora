@@ -10,7 +10,7 @@ namespace OpticaZamora.Interface
     public interface IVentaService
     {
         //IEnumerable<Venta> GetRetornarListaVentas(string tit);
-        void AddVenta(Sale sale, List<DetalleVenta> Detalles);
+        bool AddVenta(Sale sale, List<DetalleVenta> Detalles);
         List<Sale> Ventas();
     }
 }

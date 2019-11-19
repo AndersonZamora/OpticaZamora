@@ -13,7 +13,6 @@ namespace OpticaZamora.Controllers
 {
     public class PatientController : Controller
     {
-
         private IPacienteService PacienteService;
         private IPacienteValidacion PacienteValidacion;
         public PatientController(IPacienteService PacienteService, IPacienteValidacion PacienteValidacion)
@@ -22,7 +21,7 @@ namespace OpticaZamora.Controllers
             this.PacienteValidacion = PacienteValidacion;
         }
         // GET: Patient
-        [Authorize] ///LISTA DE DOCTORES
+        [Authorize] ///LISTA DE PACIENTES
         public ActionResult List(string criterion)
         {
             var pacientes = PacienteService.GetRetornarListasPaciente(criterion);
@@ -41,7 +40,7 @@ namespace OpticaZamora.Controllers
         public ActionResult Save(Paciente paciente)
         {
             PacienteValidacion.validate(paciente, ModelState);
-            if (!ModelState.IsValid)
+            if (!PacienteValidacion.IsValid())
                 return View("Save", paciente);
 
             PacienteService.AddPaciente(paciente);
@@ -59,7 +58,7 @@ namespace OpticaZamora.Controllers
         public ActionResult Update(Paciente paciente)
         {
             PacienteValidacion.validateUpdate(paciente, ModelState);
-            if (!ModelState.IsValid)
+            if (!PacienteValidacion.IsValid())
                 return View("Edit", paciente);
 
             PacienteService.UpdatePaciente(paciente);

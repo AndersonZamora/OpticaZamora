@@ -41,7 +41,7 @@ namespace OpticaZamora.Controllers
         {
             ListaDeCaregorias();
             ProdcutoValidation.Validate(producto, ModelState);
-            if (!ModelState.IsValid)
+            if (!ProdcutoValidation.IsValid())
                 return View("Save", producto);
 
             ProductoService.AddProducto(producto);
@@ -60,7 +60,7 @@ namespace OpticaZamora.Controllers
             ListaDeCaregorias();
 
             ProdcutoValidation.ValidateUpdate(producto, ModelState);
-            if (!ModelState.IsValid)
+            if (!ProdcutoValidation.IsValid())
                 return View("Edit", producto);
 
             ProductoService.UpdateProducto(producto);
@@ -69,7 +69,8 @@ namespace OpticaZamora.Controllers
         ///LISTA DE CATEGORIAS
         public void ListaDeCaregorias()
         {
-            var categoria = CategoriaService.GetRetornarListaCategoria();
+            string criterio = null;
+            var categoria = CategoriaService.GetRetornarListaCategoria(criterio);
             ViewBag.categoria = new SelectList(categoria, "IdCategoria", "Nombre");
         }
     }

@@ -10,9 +10,9 @@ namespace OpticaZamora.Interface
     public interface IDoctorService
     {
         IEnumerable<Doctor> GetRetornarListaDoctor(string criterio,string criterio2);
-        void AddDoctor(Doctor doctor);
+        Boolean AddDoctor(Doctor doctor);
         Doctor DoctorModificar(string IdDoctor);
-        void UpdateDoctor(Doctor doctor);
+        Boolean UpdateDoctor(Doctor doctor);
         void logOff();
     }
 
