@@ -12,7 +12,6 @@ namespace OpticaZamora.Models
         public string NumeroDocumento { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
-        //public DateTime FechaNacimiento { get; set; }
         public string Edad { get; set; }
         public string Correo { get; set; }
         public string Direccion { get; set; }

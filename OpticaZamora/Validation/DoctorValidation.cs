@@ -12,8 +12,8 @@ namespace OpticaZamora.Validation
     public class DoctorValidation : IDoctorValidation
     {
         private ModelStateDictionary modelState;
-        private OpticaContext context;
-        private IValidarCampos validarCampos;
+        readonly OpticaContext context;
+        readonly IValidarCampos validarCampos;
 
         public DoctorValidation(IValidarCampos validarCampos, OpticaContext context)
         {
@@ -23,14 +23,14 @@ namespace OpticaZamora.Validation
         [Authorize]
         public void Validate(Doctor doctor, ModelStateDictionary modelState)
         {
-            //var dctor = context.Doctores;
+          
             this.modelState = modelState;
             try {
-                ///CODIGO DE DOCTOR
-                ValidarCodigo(doctor);
                 //////////////////////////////////////////////////////
                 ///NUMERO DE DNI
                 ValidarNumeroDocumento(doctor);
+                ///CODIGO DE DOCTOR
+                ValidarCodigo(doctor);
                 ////////////////////////////////////
                 ///Nombres
                 ValidarNombres(doctor);
@@ -50,7 +50,9 @@ namespace OpticaZamora.Validation
                 ///Password
                 ValidarPasswor(doctor);
             }
-            catch (Exception){} 
+            catch (Exception e){
+                e.GetBaseException();
+            } 
         }
       
         public void ValidateUpdate(Doctor doctor, ModelStateDictionary modelState)
@@ -70,8 +72,10 @@ namespace OpticaZamora.Validation
                 var pass = dctor.Any(o => o.Password == doctor.Password);
 
                 if (cod == false)
-                    ///CODIGO DE DOCTOR
+                {  ///CODIGO DE DOCTOR
                     ValidarCodigo(doctor);
+                }
+                  
                     //////////////////////////////////////////////////////
                 if (dni == false)
                     ///NUMERO DE DNI

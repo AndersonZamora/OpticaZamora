@@ -12,8 +12,8 @@ namespace OpticaZamora.Controllers
 {
     public class LoginController : Controller
     {
-        private ILoginService Service;
-        private ISessionManager Manager;
+        readonly ILoginService Service;
+        readonly ISessionManager Manager;
    
         public LoginController(ILoginService Service, ISessionManager Manager)
         {

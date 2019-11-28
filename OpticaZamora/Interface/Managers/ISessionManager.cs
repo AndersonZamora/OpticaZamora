@@ -10,7 +10,7 @@ namespace OpticaZamora.Interface.Managers
     {
         void SetNombreUsuario(String Name);
         void SetIdUsuario(String IdUsuario);
-        int ListaUsuaio(int Contador);
+     
         void AutenticacionUsername(String Username, bool valor);
     }
-}//  void SetNumeroAdmin(String IdUsuario);
+}

@@ -15,8 +15,8 @@ namespace OpticaZamora.Controllers
  
     public class DoctorController : Controller
     {
-        private IDoctorService DoctorService;
-        private IDoctorValidation DoctorValidation;
+        readonly IDoctorService DoctorService;
+        readonly IDoctorValidation DoctorValidation;
 
         public DoctorController(IDoctorService DoctorService, IDoctorValidation DoctorValidation)
         {
@@ -57,7 +57,7 @@ namespace OpticaZamora.Controllers
         [Authorize] ///ACTUALIZAR DOCTOR
         public ActionResult Update(Doctor doctor)
         {
-            string IdDoctor = doctor.IdDoctor;
+           
             DoctorValidation.ValidateUpdate(doctor, ModelState);
             if (!DoctorValidation.IsValid())
                 return View("Edit", doctor);

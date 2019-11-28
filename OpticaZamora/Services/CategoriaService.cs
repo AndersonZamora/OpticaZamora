@@ -14,7 +14,7 @@ namespace OpticaZamora.Services
     public class CategoriaService : ICategoriaService
     {
 
-        private OpticaContext Context;
+        readonly OpticaContext Context;
        
         public CategoriaService(OpticaContext Context)
         {

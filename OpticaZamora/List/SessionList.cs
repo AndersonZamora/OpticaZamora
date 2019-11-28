@@ -15,7 +15,7 @@ namespace OpticaZamora.List
     {
         HttpSessionState Session;
         private OpticaContext Context;
-        public dynamic ViewBag;
+        private dynamic ViewBag;
         public SessionList()
         {
             Context = new OpticaContext();

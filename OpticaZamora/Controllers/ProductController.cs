@@ -12,9 +12,9 @@ namespace OpticaZamora.Controllers
     public class ProductController : Controller
     {
        
-        private IProdcutoService ProductoService;
-        private IProdcutoValidation ProdcutoValidation;
-        private ICategoriaService CategoriaService;
+        readonly IProdcutoService ProductoService;
+        readonly IProdcutoValidation ProdcutoValidation;
+        readonly ICategoriaService CategoriaService;
         public ProductController(IProdcutoService ProductoService, IProdcutoValidation ProdcutoValidation, ICategoriaService CategoriaService)
         {
             this.ProductoService = ProductoService;

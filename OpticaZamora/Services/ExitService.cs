@@ -16,8 +16,7 @@ namespace OpticaZamora.Services
         [Authorize]
         public void logOff()
         {
-            FormsAuthentication.SignOut();
-            
+            FormsAuthentication.SignOut();          
         }
     }
 }
