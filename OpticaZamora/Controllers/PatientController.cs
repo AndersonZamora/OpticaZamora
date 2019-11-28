@@ -13,8 +13,8 @@ namespace OpticaZamora.Controllers
 {
     public class PatientController : Controller
     {
-        private IPacienteService PacienteService;
-        private IPacienteValidacion PacienteValidacion;
+        readonly IPacienteService PacienteService;
+        readonly IPacienteValidacion PacienteValidacion;
         public PatientController(IPacienteService PacienteService, IPacienteValidacion PacienteValidacion)
         {
             this.PacienteService = PacienteService;

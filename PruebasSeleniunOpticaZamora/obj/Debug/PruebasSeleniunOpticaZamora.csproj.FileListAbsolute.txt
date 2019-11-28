@@ -5,9 +5,6 @@ C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\nunit.framework.pdb
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\nunit.framework.xml
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\WebDriver.xml
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\obj\Debug\PruebasSeleniunOpticaZamora.csprojAssemblyReference.cache
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\obj\Debug\PruebasSeleniunOpticaZamora.csproj.CoreCompileInputs.cache
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\obj\Debug\PruebasSeleniunOpticaZamora.csproj.CopyComplete
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\obj\Debug\PruebasSeleniunOpticaZamora.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\obj\Debug\PruebasSeleniunOpticaZamora.pdb
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\PruebasSeleniunOpticaZamora.dll.config
@@ -28,7 +25,6 @@ C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\OpticaZamora.pdb
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\OpticaZamora.dll.config
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\EntityFramework.xml
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Web.Optimization.xml
@@ -49,18 +45,6 @@ C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\es\System.Web.Razor.resources.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Data.Common.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Diagnostics.StackTrace.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Diagnostics.Tracing.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Globalization.Extensions.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.IO.Compression.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Net.Http.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Net.Sockets.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Runtime.Serialization.Primitives.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Security.Cryptography.Algorithms.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Security.SecureString.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Threading.Overlapped.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Xml.XPath.XDocument.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\Castle.Core.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\Moq.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Web.Helpers.dll
@@ -68,3 +52,4 @@ C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\Moq.xml
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\System.Web.Helpers.xml
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\bin\Debug\es\System.Web.Helpers.resources.dll
+C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasSeleniunOpticaZamora\obj\Debug\PruebasSeleniunOpticaZamora.csprojResolveAssemblyReference.cache

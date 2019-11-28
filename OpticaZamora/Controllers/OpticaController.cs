@@ -18,8 +18,8 @@ namespace OpticaZamora.Controllers
     public class OpticaController : Controller
     {
         
-        private IVentaService VentaService;
-        private IExitService exit;
+        readonly IVentaService VentaService;
+        readonly IExitService exit;
         public OpticaController(IExitService exit,IVentaService VentaService)
         {
             ///Deslogeo

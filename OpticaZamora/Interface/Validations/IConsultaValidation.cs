@@ -10,8 +10,7 @@ namespace OpticaZamora.Interface.Validations
 {
     public interface IConsultaValidation
     {
-        //void Validate(Consulta consulta, List<DetalleConsulta> Detalles, ModelStateDictionary modelState);
-
+       
         bool IsValid();
     }
 }

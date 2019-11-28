@@ -11,8 +11,8 @@ namespace OpticaZamora.Controllers
 {
     public class CategoryController : Controller
     {
-        private ICategoriaService CategoriaService;
-        private ICategoriaValidation CategoriaValidation;
+        readonly ICategoriaService CategoriaService;
+        readonly ICategoriaValidation CategoriaValidation;
         public CategoryController(ICategoriaService CategoriaService, ICategoriaValidation CategoriaValidation)
         {
             this.CategoriaService = CategoriaService;

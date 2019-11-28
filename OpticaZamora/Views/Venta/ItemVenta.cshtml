@@ -3,31 +3,4 @@
     ViewBag.Title = "ItemVenta";
     Layout = null;
 }
-<tr><td>@Model.Nombre <input name="NombreProducto" hidden="hidden" value="@Model.Nombre" /> <input hidden="hidden" name="Detalles[@ViewBag.Index].ProductoNombre" value="@Model.Nombre" /> <input id="ProductoAlegirDelete" hidden="hidden" name="ProductoId" value="@Model.IdProducto" /></td><td>@Model.Categoria.Nombre <input hidden="hidden" name="Detalles[@ViewBag.Index].ProductoCategoria" value="@Model.Categoria.Nombre" /> <input name="CategoriaProducto" hidden="hidden" value="@Model.Categoria.Nombre" /></td><td><input class="form-control text-center" type="number" min="1" max="@Model.Stock" id="cantidad[]" onchange="Calcular(this);" name="Detalles[@ViewBag.Index].Cantidad" value="0" /> <input type="hidden" name="Detalles[@ViewBag.Index].ProductoId" value="@Model.IdProducto" /></td><td><input class="form-control text-center" type="number" max="@Model.Precio" min="@Model.Precio"   id="precunit[]" onchange="Calcular(this);" name="Detalles[@ViewBag.Index].ProductoPrecio" value="@Model.Precio" /></td><td><input class="form-control text-center" name="Detalles[@ViewBag.Index].Total" type="hidden" id="totalitem[]" value="0.00"><input class="form-control text-center" disabled="disabled" type="text" value="@Model.Stock" /></td><td><a></a></td></tr>
-@*<script>
-    $('#BtnEliminar').click(function (e) {
-
-        var indice = $('#BodyProductos').find('tr').length;
-
-        var idproduct = $('#ProductoAlegirDelete').val(); 
-
-        alert(idproduct + indice);
-        //$('#BodyProductos > tr').eq(indice).children('td').eq(indice).remove();
-        //$('#BodyProductos > tr').each(function () {
-        //    $(this).children('td').remove();
-        //});
-        $('table tr:not()').slice(1).remove();
-    });
-    function myFunction() {
-        //$('#table').detach();
-        //$('#table tbody tr').not(':first').remove();
-        //$('table tr:not(:first-child)').slice(0).remove();
-        $('table tr:not(:tr)').slice(0).remove();
-           // .on('click', 'tr:not(:first-child) td[data-action=remove]', function () {
-        //    $(this).parents('tr').remove();
-        //})
-        //var trs = $("#BodyProductos tr").length;
-        //if (trs > 1) {
-        //$("#table tr:last").remove();
-    }
-</script>*@
+<tr><td class="name">@Model.Nombre <input name="NombreProducto" hidden="hidden" value="@Model.Nombre" /> <input hidden="hidden" name="Detalles[@ViewBag.Index].ProductoNombre" value="@Model.Nombre" /> <input id="ProductoAlegirDelete" hidden="hidden" name="ProductoId" value="@Model.IdProducto" /></td><td>@Model.Categoria.Nombre <input hidden="hidden" name="Detalles[@ViewBag.Index].ProductoCategoria" value="@Model.Categoria.Nombre" /> <input name="CategoriaProducto" hidden="hidden" value="@Model.Categoria.Nombre" /></td><td><input class="form-control text-center" type="number" min="1" max="@Model.Stock" id="cantidad[]" onchange="Calcular(this);" name="Detalles[@ViewBag.Index].Cantidad" value="0" /> <input type="hidden" name="Detalles[@ViewBag.Index].ProductoId" value="@Model.IdProducto" /></td><td><input class="precio form-control text-center" type="number" max="@Model.Precio" min="@Model.Precio"   id="precunit[]" onchange="Calcular(this);" name="Detalles[@ViewBag.Index].ProductoPrecio" value="@Model.Precio" /></td><td><input class="form-control text-center" name="Detalles[@ViewBag.Index].Total" type="hidden" id="totalitem[]" value="0.00"><input class="form-control text-center" disabled="disabled" type="text" value="@Model.Stock" /></td><td><a  onclick="remove(this)" class="btn btn-success btn-block"><strong>ELIMINAR</strong></a></td></tr>

@@ -191,41 +191,13 @@
     <Compile Include="Migrations\201909181927244_InitDatabase.Designer.cs">
       <DependentUpon>201909181927244_InitDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909182048318_InitDatabase2.cs" />
-    <Compile Include="Migrations\201909182048318_InitDatabase2.Designer.cs">
-      <DependentUpon>201909182048318_InitDatabase2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909182129363_InitDatabase3.cs" />
-    <Compile Include="Migrations\201909182129363_InitDatabase3.Designer.cs">
-      <DependentUpon>201909182129363_InitDatabase3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909190231580_Expediente.cs" />
-    <Compile Include="Migrations\201909190231580_Expediente.Designer.cs">
-      <DependentUpon>201909190231580_Expediente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909190311242_Expediente2.cs" />
-    <Compile Include="Migrations\201909190311242_Expediente2.Designer.cs">
-      <DependentUpon>201909190311242_Expediente2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201909200319145_Nuevo.cs" />
     <Compile Include="Migrations\201909200319145_Nuevo.Designer.cs">
       <DependentUpon>201909200319145_Nuevo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909221950253_codigo.cs" />
-    <Compile Include="Migrations\201909221950253_codigo.Designer.cs">
-      <DependentUpon>201909221950253_codigo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909231858433_paciente01.cs" />
-    <Compile Include="Migrations\201909231858433_paciente01.Designer.cs">
-      <DependentUpon>201909231858433_paciente01.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201909231937110_paciente02.cs" />
     <Compile Include="Migrations\201909231937110_paciente02.Designer.cs">
       <DependentUpon>201909231937110_paciente02.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909250116525_InitDatabase21.cs" />
-    <Compile Include="Migrations\201909250116525_InitDatabase21.Designer.cs">
-      <DependentUpon>201909250116525_InitDatabase21.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201909250117312_InitDatabase31.cs" />
     <Compile Include="Migrations\201909250117312_InitDatabase31.Designer.cs">
@@ -705,32 +677,11 @@
     <EmbeddedResource Include="Migrations\201909181927244_InitDatabase.resx">
       <DependentUpon>201909181927244_InitDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909182048318_InitDatabase2.resx">
-      <DependentUpon>201909182048318_InitDatabase2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909182129363_InitDatabase3.resx">
-      <DependentUpon>201909182129363_InitDatabase3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909190231580_Expediente.resx">
-      <DependentUpon>201909190231580_Expediente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909190311242_Expediente2.resx">
-      <DependentUpon>201909190311242_Expediente2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909200319145_Nuevo.resx">
       <DependentUpon>201909200319145_Nuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909221950253_codigo.resx">
-      <DependentUpon>201909221950253_codigo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909231858433_paciente01.resx">
-      <DependentUpon>201909231858433_paciente01.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909231937110_paciente02.resx">
       <DependentUpon>201909231937110_paciente02.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909250116525_InitDatabase21.resx">
-      <DependentUpon>201909250116525_InitDatabase21.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909250117312_InitDatabase31.resx">
       <DependentUpon>201909250117312_InitDatabase31.cs</DependentUpon>

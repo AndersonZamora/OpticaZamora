@@ -12,8 +12,8 @@ namespace OpticaZamora.Controllers
 {
     public class CasefileController : Controller
     {
-        private IExpedienteService ExpedienteService;
-        private ISessionList SessionList;
+        readonly IExpedienteService ExpedienteService;
+        readonly ISessionList SessionList;
         public CasefileController(IExpedienteService ExpedienteService, ISessionList SessionList)
         {
             this.ExpedienteService = ExpedienteService;

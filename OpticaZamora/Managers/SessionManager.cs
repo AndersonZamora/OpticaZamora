@@ -24,21 +24,11 @@ namespace OpticaZamora.Managers
             Session["IdUsuario"] = IdUsuario;
         }
 
-        //AutenticacionCorreoElectronico
         public void AutenticacionUsername(String Username, bool valor)
         {
             FormsAuthentication.SetAuthCookie(Username, valor);
         }
 
-        public int ListaUsuaio(int Contador)
-        {
-            if(Contador == 0)
-            {
-
-                Contador++;
-                return Contador;
-            }
-            return Contador;
-        }
+       
     }
 }

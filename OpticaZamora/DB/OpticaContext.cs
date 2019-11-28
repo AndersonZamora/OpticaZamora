@@ -10,7 +10,7 @@ namespace OpticaZamora.DB
 {
     public class OpticaContext : DbContext
     {
-        //private static OpticaContext instanace = null;
+
         public virtual DbSet<Sys> Syss { get; set; }
         public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Doctor> Doctores { get; set; }

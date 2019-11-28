@@ -25,10 +25,10 @@ namespace OpticaZamora.Validation
             this.modelState = modelState;
             try
             {
-                ///VALIDAR FORMATO DE CORREO
-                VALIDARCORREO(paciente); 
                 ///NUMEROS DE DNI
-                NUMERODEIDENTIFICACION(paciente); 
+                NUMERODEIDENTIFICACION(paciente);
+                ///VALIDAR FORMATO DE CORREO
+                VALIDARCORREO(paciente);          
                 ///////////////////
                 ///Nombres
                 VALIDARNOMBRES(paciente);

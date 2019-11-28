@@ -13,9 +13,9 @@ namespace OpticaZamora.Controllers
     public class VentaController : Controller
     {
         private OpticaContext context; 
-        private IPacienteService PacienteService;
-        private IVentaService ventaService;
-        private IExpedienteService expedienteService;
+        readonly IPacienteService PacienteService;
+        readonly IVentaService ventaService;
+        readonly IExpedienteService expedienteService;
         public VentaController(IPacienteService PacienteService, IVentaService ventaService, IExpedienteService expedienteService)
         {
             this.PacienteService = PacienteService;

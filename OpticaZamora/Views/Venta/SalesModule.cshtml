@@ -166,23 +166,40 @@
         </div>
     </div>
 </div>
+<style>
+    .oculto{
+        display:none;
+    }
+</style>
 <script>
   
     $(".js-example-placeholder-single").select2({
         placeholder: "Select a product",
         allowClear: true
     });
+ 
+    function remove(botone) {
+        var val = $(botone).closest('tr').remove();
+        //var val = $(botone).closest('.precio').text();
+    }
+    $('#BtnAgregarProducto2').click(function (e) {
 
-    $('#BtnAgregarProducto').click(function (e) {
         e.preventDefault();
-
+        alert("www");
+    });
+    $('#BtnAgregarProducto').click(function (e) {
+   
+        e.preventDefault();
+        
         var index = $('#BodyProductos').find('tr').length;
 
         $.ajax({
             url: '/Venta/ItemVenta?id=' + $('#ProductoAelegir').val() + "&index=" + index,
             type: 'get'
         }).done(function (response) {
+            
             $("#BodyProductos").append(response);
+            elemntos.push(response);
         });
     });
     var idpaciente = document.getElementById("paciente").value;
@@ -225,11 +242,6 @@
         var precc = parseFloat(total.innerHTML) + totalitem - anterior;
         total.innerHTML = precc.toFixed(2);
     }
-
-    $(document).on('click', '.borrar', function (event) {
-        event.preventDefault();
-        $(this).closest('tr').remove();
-    });
 
     $(document).ready(function () {
         $("#search").keyup(function () {
