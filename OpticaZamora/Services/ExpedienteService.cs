@@ -12,7 +12,7 @@ namespace OpticaZamora.Services
 {
     public class ExpedienteService : IExpedienteService
     {
-        private OpticaContext Context;
+        readonly OpticaContext Context;
         public ExpedienteService()
         {
             Context = new OpticaContext();
@@ -25,23 +25,21 @@ namespace OpticaZamora.Services
             Context.SaveChanges();
         }
         [Authorize]
-        public Expediente ExpedientePaciente(string IdExpediente)
+        public Expediente ExpedientePaciente(string IdPaciente)
         {
             Expediente expediente = null;
 
             try
             {
-                expediente = Context.Expediente.Where(o => o.IdExpediente == IdExpediente).Include(o => o.Paciente).Include(o =>o.Doctor).FirstOrDefault();
+                expediente = Context.Expediente.Where(o => o.IdExpediente == IdPaciente).Include(o => o.Paciente).Include(o =>o.Doctor).FirstOrDefault();
                 if (expediente == null)
-                {
-                    return expediente = null;
-                }else if (expediente != null)
-                {
                     return expediente;
-                }
-
+                else 
+                    return expediente;
             }
-            catch(Exception) { }
+            catch(Exception ex) {
+                ex.ToString();
+            }
 
             return expediente;
 
@@ -53,19 +51,17 @@ namespace OpticaZamora.Services
             Expediente expediente = null;
             try
             {
-               expediente = Context.Expediente.Where(o => o.PacienteId == Id).Include(a => a.Paciente).FirstOrDefault();
-             //   expediente = Context.Expediente.Include(a => a.Paciente).SingleOrDefault(a => a.PacienteId == Id);
-                
+               expediente = Context.Expediente.Where(o => o.PacienteId == Id).Include(a => a.Paciente).FirstOrDefault();                
                 if (expediente == null)
-                {
-                    return expediente = null;
-                }
-                else if (expediente != null)
                 {
                     return expediente;
                 }
+                else
+                    return expediente;
             }
-            catch (Exception) { }
+            catch (Exception ex) {
+                ex.ToString();
+            }
 
             return expediente;
         }
@@ -80,21 +76,20 @@ namespace OpticaZamora.Services
                 expediente = Context.Expediente.Where(o => o.PacienteId == Id).ToList();
                 if(expediente == null)
                 {
-                    return expediente = null;
-                }else if (expediente != null)
-                {
                     return expediente;
-                }
+                }else
+                    return expediente;
+
             }
-            catch(Exception ) { }
+            catch(Exception ex) {
+                ex.ToString();
+            }
 
             return expediente;
         }
         [Authorize]
         public IEnumerable<Expediente> GetRetornarListaExpedientes(string tit, string criterio)
         {
-            //Expediente expediente = null;
-
             var query = from p in Context.Expediente.Include(a => a.Doctor).Include(a => a.Paciente)
                         select p;
             if (!string.IsNullOrEmpty(tit))

@@ -12,43 +12,38 @@ namespace OpticaZamora.Controllers
 {
     public class VentaController : Controller
     {
-        private OpticaContext context; 
-        readonly IPacienteService PacienteService;
+        
         readonly IVentaService ventaService;
         readonly IExpedienteService expedienteService;
-        public VentaController(IPacienteService PacienteService, IVentaService ventaService, IExpedienteService expedienteService)
+        public VentaController(IVentaService ventaService, IExpedienteService expedienteService)
         {
-            this.PacienteService = PacienteService;
             this.ventaService = ventaService;
             this.expedienteService = expedienteService;
-            context = new OpticaContext();
         }
         [HttpGet]
         [Authorize]
         public ViewResult SalesModule()
         {
-            ///CLIENTE
-            var cliente = context.Pacientes.ToList();
+            var cliente = ventaService.Pacientes();
             ViewBag.paciente = cliente;
             HttpContext.Session["cliente"] = cliente;
             ViewBag.cliente = HttpContext.Session["paciente"];
-            ///PRODUCTO
-            ViewBag.Producto = GetProductosDeBaseDeDatos();
+
+            ViewBag.Producto = ventaService.Productos();
             return View("SalesModule");
         }
         [HttpPost]
         [Authorize]
         public ActionResult SalesModule(Sale sale,List<DetalleVenta> Detalles)
         {
-            var cliente = context.Pacientes.ToList();
+            var cliente = ventaService.Pacientes();
             ViewBag.paciente = cliente;
 
             HttpContext.Session["cliente"] = cliente;
 
             ViewBag.cliente = HttpContext.Session["paciente"];
 
-            ///PRODUCTO
-            ViewBag.Producto = GetProductosDeBaseDeDatos();
+            ViewBag.Producto = ventaService.Productos();
 
             ventaService.AddVenta(sale, Detalles);
             return RedirectToAction("Venta", "Optica");
@@ -66,17 +61,11 @@ namespace OpticaZamora.Controllers
         [Authorize]
         public ActionResult ItemVenta(string id,int index)
         {
-            var producto = GetProductosDeBaseDeDatos().Where(o => o.IdProducto == id).FirstOrDefault();
+            var producto = ventaService.GetProductosDeBaseDeDatos(id);
             ViewBag.Index = index;
             return View(producto);
         }
         [Authorize]
-        public List<Producto> GetProductosDeBaseDeDatos()
-        {
-            var productos = context.Productos.Include(o => o.Categoria).ToList();
-            return productos;
-        }
-
         [HttpGet]
         public ActionResult Expediente(string Pacinete_Expediente)
         {

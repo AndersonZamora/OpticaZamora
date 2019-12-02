@@ -9,8 +9,7 @@ namespace OpticaZamora.Interface.List
 {
     public interface ISessionList
     {
-        void SetListaSucursales();
-        void SetListaSucursalesBi();
+        
         List<Doctor> SetListaDocotores();
         List<Paciente> SetListaPaciente(string IdPaciente);
         List<Producto> GetProductosDeBaseDeDatos();

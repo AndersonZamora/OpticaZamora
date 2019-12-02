@@ -13,7 +13,7 @@ namespace OpticaZamora.Services
 {
     public class ProdcutoService : IProdcutoService
     {
-        private OpticaContext Context;
+        readonly OpticaContext Context;
         public ProdcutoService(OpticaContext Context)
         {
             this.Context = Context;
@@ -45,7 +45,9 @@ namespace OpticaZamora.Services
                 productos = Context.Productos.Where(o => o.IdProducto == IdProducto).First();
                 return productos;
             }
-            catch (Exception) { }
+            catch (Exception ex) {
+                ex.ToString();
+            }
             return productos;
         }
         [Authorize]

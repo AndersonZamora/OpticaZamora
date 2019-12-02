@@ -14,7 +14,7 @@ namespace OpticaZamora.Services
     public class DoctorService : IDoctorService
     {
      
-        private OpticaContext Context;
+        readonly OpticaContext Context;
    
         public DoctorService(OpticaContext Context)
         {
@@ -36,7 +36,9 @@ namespace OpticaZamora.Services
                 doctor = Context.Doctores.Where(o => o.IdDoctor == IdDoctor).First();
                 return doctor;
             }
-            catch (Exception) { }
+            catch (Exception ex) {
+                ex.ToString();
+            }
             return doctor;
         }
         [Authorize]

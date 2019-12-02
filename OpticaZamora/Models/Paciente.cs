@@ -17,6 +17,5 @@ namespace OpticaZamora.Models
         public string Direccion { get; set; }
         public Genero TipoGenero { get; set; }
         public string Celular { get; set; }
-        //Relacion
     }
 }

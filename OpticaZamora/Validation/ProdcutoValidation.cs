@@ -15,12 +15,13 @@ namespace OpticaZamora.Validation
     public class ProdcutoValidation : IProdcutoValidation
     {
         private ModelStateDictionary modelState;
-        private IValidarCampos ValidarCampos;
-        OpticaContext Context = new OpticaContext();
+        readonly IValidarCampos ValidarCampos;
+        readonly OpticaContext Context;
       
-        public ProdcutoValidation(IValidarCampos ValidarCampos)
+        public ProdcutoValidation(IValidarCampos ValidarCampos, OpticaContext Context)
         {
             this.ValidarCampos = ValidarCampos;
+            this.Context = Context;
         }
 
         public bool IsValid()
@@ -29,22 +30,19 @@ namespace OpticaZamora.Validation
         }
         public void Validate(Producto producto, ModelStateDictionary modelState)
         {
-            var produc = Context.Productos;
             this.modelState = modelState;
             try
             {
-                ///CODIGO
                 ValidarCodigo(producto);
-                ///Nombre
                 ValidarNombre(producto);
-                ///PRECIO
                 ValidarPrecio(producto);
-                ///Stock
                 ValidarStock(producto);
-                ///Descripcion
                 ValidarDescripcion(producto);
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
            
         }
         public void ValidateUpdate(Producto producto, ModelStateDictionary modelState)
@@ -55,32 +53,25 @@ namespace OpticaZamora.Validation
             this.modelState = modelState;
             try
             {
-                var cod = produc.Any(o => o.CodigoProducto == producto.CodigoProducto);
-                var nomb = produc.Any(o => o.Nombre == producto.Nombre);
-                var prec = produc.Any(o => o.Precio == producto.Precio);
-                var stoc = produc.Any(o => o.Stock == producto.Stock);
-                var desc = produc.Any(o => o.Descripcion == producto.Descripcion);
-
-                if(cod == false)
-                    ///CODIGO
+                if(!produc.Any(o => o.CodigoProducto == producto.CodigoProducto))
                     ValidarCodigo(producto);
-                if(nomb == false)
-                    ///Nombre
-                    ValidarNombre(producto);
-                if(prec == false)
-                    ///PRECIO
-                    ValidarPrecio(producto);
-                if(stoc == false)
-                    ///Stock
-                    ValidarStock(producto);
-                if (desc == false)
-                    ValidarDescripcion(producto);
 
+                if(!produc.Any(o => o.Nombre == producto.Nombre))
+                    ValidarNombre(producto);
+
+                if(!produc.Any(o => o.Precio == producto.Precio))
+                    ValidarPrecio(producto);
+
+                if(!produc.Any(o => o.Stock == producto.Stock))
+                    ValidarStock(producto);
+                if (!produc.Any(o => o.Descripcion == producto.Descripcion))
+                    ValidarDescripcion(producto);
             }
-            catch (Exception) { }
+            catch (Exception ex){
+                ex.ToString();
+            }
 
         }
-
         void ValidarCodigo(Producto producto)
         {
             var produc = Context.Productos;
@@ -115,13 +106,12 @@ namespace OpticaZamora.Validation
 
             if (producto.Nombre.Length < 4)
                 modelState.AddModelError("Nombre", "Nombre Invalido (Ingrese Minimo 4 caracteres alfabeticos)");
-
-           
         }
         void ValidarPrecio(Producto producto)
         {
             if (string.IsNullOrEmpty(producto.Precio))
                 modelState.AddModelError("Precio", "El Precio es Obligatorio");
+
             if (producto.Precio.Contains(" "))
                 modelState.AddModelError("Precio", "Ingrese un Precio es valido");
 
@@ -141,7 +131,6 @@ namespace OpticaZamora.Validation
             
             if(!ValidarCampos.ValidarStock(producto.Stock))
                 modelState.AddModelError("Stock", "Ingrese Solo Numeros");
-
         }
         void ValidarDescripcion(Producto producto)
         {
@@ -153,14 +142,6 @@ namespace OpticaZamora.Validation
 
             if (producto.Descripcion.Length > 400)
                 modelState.AddModelError("Descripcion", "Se perminten hasta 400 letras");
-
-        }
-        void ValidateStoc(int producto , ModelStateDictionary modelState)
-        {
-            var productoSctoc = Context.Productos.First();
-            if (productoSctoc.Stock < producto)
-                modelState.AddModelError("producto", "Reivse el estock de productos es probable que solo se guardaron algunos");
-
         }
     }
 }

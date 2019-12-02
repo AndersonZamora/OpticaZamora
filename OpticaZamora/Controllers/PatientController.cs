@@ -21,7 +21,7 @@ namespace OpticaZamora.Controllers
             this.PacienteValidacion = PacienteValidacion;
         }
         // GET: Patient
-        [Authorize] ///LISTA DE PACIENTES
+        [Authorize]
         public ActionResult List(string criterion)
         {
             var pacientes = PacienteService.GetRetornarListasPaciente(criterion);
@@ -29,14 +29,14 @@ namespace OpticaZamora.Controllers
         }
         //
         [Authorize]
-        [HttpGet] ///GUARDAR PACIENTE GET
+        [HttpGet]
         public ViewResult Save()
         {
             return View("Save", new Paciente());
         }
         //
         [Authorize]
-        [HttpPost] /// GUARDAR PACIENTE POST
+        [HttpPost]
         public ActionResult Save(Paciente paciente)
         {
             PacienteValidacion.validate(paciente, ModelState);
@@ -47,14 +47,14 @@ namespace OpticaZamora.Controllers
             return RedirectToAction("List");
         }
         //
-        [Authorize] /// EDITAR PACIENTE
+        [Authorize]
         public ViewResult Edit(string Edit_Patient)
         {
             var pacientes = PacienteService.PacienteModificar(Edit_Patient);
             return View("Edit", pacientes);
         }
         //
-        [Authorize] /// ACTUALIZAR PACIENTE
+        [Authorize]
         public ActionResult Update(Paciente paciente)
         {
             PacienteValidacion.validateUpdate(paciente, ModelState);

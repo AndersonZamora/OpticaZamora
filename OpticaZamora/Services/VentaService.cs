@@ -12,7 +12,7 @@ namespace OpticaZamora.Services
 {
     public class VentaService : IVentaService
     {
-        private OpticaContext Context;
+        readonly OpticaContext Context;
         public VentaService(OpticaContext Context)
         {
             this.Context = Context;
@@ -30,6 +30,24 @@ namespace OpticaZamora.Services
             Context.SaveChanges();
             return true;
         }
+
+        public IEnumerable<Producto> GetProductosDeBaseDeDatos(string id)
+        {
+            var productos = Context.Productos.Include(o => o.Categoria).AsQueryable();
+            return productos.Where(o => o.IdProducto == id).ToList();
+        }
+
+        public List<Paciente> Pacientes()
+        {
+            return Context.Pacientes.ToList();
+        }
+
+        public List<Producto> Productos()
+        {
+            var productos = Context.Productos.Include(o => o.Categoria).ToList();
+            return productos;
+        }
+
         public List<Sale> Ventas()
         {
             var ventas = Context.Sales.Include(a => a.Paciente).AsQueryable();

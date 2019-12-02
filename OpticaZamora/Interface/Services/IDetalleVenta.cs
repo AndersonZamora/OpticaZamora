@@ -1,4 +1,5 @@
-﻿using OpticaZamora.Migrations;
+﻿
+using OpticaZamora.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
