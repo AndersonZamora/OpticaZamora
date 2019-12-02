@@ -1,6 +1,6 @@
 USE [ProyOpticaZamora2]
 GO
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -22,7 +22,7 @@ CREATE TABLE [dbo].[__MigrationHistory](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Categoria]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[Categoria]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -37,7 +37,7 @@ CREATE TABLE [dbo].[Categoria](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[DetalleVenta]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[DetalleVenta]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -58,7 +58,7 @@ CREATE TABLE [dbo].[DetalleVenta](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Doctor]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[Doctor]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -82,7 +82,7 @@ CREATE TABLE [dbo].[Doctor](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Expediente]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[Expediente]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +111,7 @@ CREATE TABLE [dbo].[Expediente](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Paciente]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[Paciente]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -134,7 +134,7 @@ CREATE TABLE [dbo].[Paciente](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Producto]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[Producto]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -154,7 +154,7 @@ CREATE TABLE [dbo].[Producto](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Sale]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[Sale]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +171,7 @@ CREATE TABLE [dbo].[Sale](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 13/11/2019 22:30:29 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 2/12/2019 14:01:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
