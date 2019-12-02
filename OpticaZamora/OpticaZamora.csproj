@@ -187,110 +187,7 @@
     <Compile Include="Interface\Validations\IValidarCampos.cs" />
     <Compile Include="List\SessionList.cs" />
     <Compile Include="Managers\SessionManager.cs" />
-    <Compile Include="Migrations\201909181927244_InitDatabase.cs" />
-    <Compile Include="Migrations\201909181927244_InitDatabase.Designer.cs">
-      <DependentUpon>201909181927244_InitDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909200319145_Nuevo.cs" />
-    <Compile Include="Migrations\201909200319145_Nuevo.Designer.cs">
-      <DependentUpon>201909200319145_Nuevo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909231937110_paciente02.cs" />
-    <Compile Include="Migrations\201909231937110_paciente02.Designer.cs">
-      <DependentUpon>201909231937110_paciente02.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909250117312_InitDatabase31.cs" />
-    <Compile Include="Migrations\201909250117312_InitDatabase31.Designer.cs">
-      <DependentUpon>201909250117312_InitDatabase31.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909250118142_InitDatabase4.cs" />
-    <Compile Include="Migrations\201909250118142_InitDatabase4.Designer.cs">
-      <DependentUpon>201909250118142_InitDatabase4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909250124103_InitDatabase5.cs" />
-    <Compile Include="Migrations\201909250124103_InitDatabase5.Designer.cs">
-      <DependentUpon>201909250124103_InitDatabase5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909250454472_Modificaciones.cs" />
-    <Compile Include="Migrations\201909250454472_Modificaciones.Designer.cs">
-      <DependentUpon>201909250454472_Modificaciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909251629325_venta.cs" />
-    <Compile Include="Migrations\201909251629325_venta.Designer.cs">
-      <DependentUpon>201909251629325_venta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909251643590_venta2.cs" />
-    <Compile Include="Migrations\201909251643590_venta2.Designer.cs">
-      <DependentUpon>201909251643590_venta2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909252011016_venta3.cs" />
-    <Compile Include="Migrations\201909252011016_venta3.Designer.cs">
-      <DependentUpon>201909252011016_venta3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909252025137_DetalleVenta.cs" />
-    <Compile Include="Migrations\201909252025137_DetalleVenta.Designer.cs">
-      <DependentUpon>201909252025137_DetalleVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909252106425_DetalleVenta1.cs" />
-    <Compile Include="Migrations\201909252106425_DetalleVenta1.Designer.cs">
-      <DependentUpon>201909252106425_DetalleVenta1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909290123314_medidas2.cs" />
-    <Compile Include="Migrations\201909290123314_medidas2.Designer.cs">
-      <DependentUpon>201909290123314_medidas2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910041937498_Prueba.cs" />
-    <Compile Include="Migrations\201910041937498_Prueba.Designer.cs">
-      <DependentUpon>201910041937498_Prueba.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910081735156_Carrito.cs" />
-    <Compile Include="Migrations\201910081735156_Carrito.Designer.cs">
-      <DependentUpon>201910081735156_Carrito.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910091740380_venta1.cs" />
-    <Compile Include="Migrations\201910091740380_venta1.Designer.cs">
-      <DependentUpon>201910091740380_venta1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910091914517_venta21.cs" />
-    <Compile Include="Migrations\201910091914517_venta21.Designer.cs">
-      <DependentUpon>201910091914517_venta21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910092039593_venta31.cs" />
-    <Compile Include="Migrations\201910092039593_venta31.Designer.cs">
-      <DependentUpon>201910092039593_venta31.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910110300484_PrecioString.cs" />
-    <Compile Include="Migrations\201910110300484_PrecioString.Designer.cs">
-      <DependentUpon>201910110300484_PrecioString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910141654195_Logeo.cs" />
-    <Compile Include="Migrations\201910141654195_Logeo.Designer.cs">
-      <DependentUpon>201910141654195_Logeo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910141654594_Logeo2.cs" />
-    <Compile Include="Migrations\201910141654594_Logeo2.Designer.cs">
-      <DependentUpon>201910141654594_Logeo2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910141818296_Elmini.cs" />
-    <Compile Include="Migrations\201910141818296_Elmini.Designer.cs">
-      <DependentUpon>201910141818296_Elmini.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911020204208_Sale.cs" />
-    <Compile Include="Migrations\201911020204208_Sale.Designer.cs">
-      <DependentUpon>201911020204208_Sale.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911020242175_Sale1.cs" />
-    <Compile Include="Migrations\201911020242175_Sale1.Designer.cs">
-      <DependentUpon>201911020242175_Sale1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911040404252_Dato.cs" />
-    <Compile Include="Migrations\201911040404252_Dato.Designer.cs">
-      <DependentUpon>201911040404252_Dato.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911131956195_Ventas3.cs" />
-    <Compile Include="Migrations\201911131956195_Ventas3.Designer.cs">
-      <DependentUpon>201911131956195_Ventas3.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\201912021719094_InitDatabase.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\DetalleVenta.cs" />
@@ -316,7 +213,6 @@
     <Compile Include="Services\ProdcutoService.cs" />
     <Compile Include="Services\VentaService.cs" />
     <Compile Include="Validation\CategoriaValidation.cs" />
-    <Compile Include="Validation\ConsultaValidation.cs" />
     <Compile Include="Validation\DoctorValidation.cs" />
     <Compile Include="Validation\PacienteValidacion.cs" />
     <Compile Include="Validation\ProdcutoValidation.cs" />
@@ -672,86 +568,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909181927244_InitDatabase.resx">
-      <DependentUpon>201909181927244_InitDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909200319145_Nuevo.resx">
-      <DependentUpon>201909200319145_Nuevo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909231937110_paciente02.resx">
-      <DependentUpon>201909231937110_paciente02.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909250117312_InitDatabase31.resx">
-      <DependentUpon>201909250117312_InitDatabase31.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909250118142_InitDatabase4.resx">
-      <DependentUpon>201909250118142_InitDatabase4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909250124103_InitDatabase5.resx">
-      <DependentUpon>201909250124103_InitDatabase5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909250454472_Modificaciones.resx">
-      <DependentUpon>201909250454472_Modificaciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909251629325_venta.resx">
-      <DependentUpon>201909251629325_venta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909251643590_venta2.resx">
-      <DependentUpon>201909251643590_venta2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909252011016_venta3.resx">
-      <DependentUpon>201909252011016_venta3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909252025137_DetalleVenta.resx">
-      <DependentUpon>201909252025137_DetalleVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909252106425_DetalleVenta1.resx">
-      <DependentUpon>201909252106425_DetalleVenta1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909290123314_medidas2.resx">
-      <DependentUpon>201909290123314_medidas2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910041937498_Prueba.resx">
-      <DependentUpon>201910041937498_Prueba.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910081735156_Carrito.resx">
-      <DependentUpon>201910081735156_Carrito.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910091740380_venta1.resx">
-      <DependentUpon>201910091740380_venta1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910091914517_venta21.resx">
-      <DependentUpon>201910091914517_venta21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910092039593_venta31.resx">
-      <DependentUpon>201910092039593_venta31.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910110300484_PrecioString.resx">
-      <DependentUpon>201910110300484_PrecioString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910141654195_Logeo.resx">
-      <DependentUpon>201910141654195_Logeo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910141654594_Logeo2.resx">
-      <DependentUpon>201910141654594_Logeo2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910141818296_Elmini.resx">
-      <DependentUpon>201910141818296_Elmini.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911020204208_Sale.resx">
-      <DependentUpon>201911020204208_Sale.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911020242175_Sale1.resx">
-      <DependentUpon>201911020242175_Sale1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911040404252_Dato.resx">
-      <DependentUpon>201911040404252_Dato.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911131956195_Ventas3.resx">
-      <DependentUpon>201911131956195_Ventas3.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

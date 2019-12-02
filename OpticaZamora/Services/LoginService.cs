@@ -11,7 +11,7 @@ namespace OpticaZamora.Services
     
     public class LoginService : ILoginService
     {
-        private OpticaContext Context;
+        readonly OpticaContext Context;
         public LoginService(OpticaContext Context)
         {
             this.Context = Context;

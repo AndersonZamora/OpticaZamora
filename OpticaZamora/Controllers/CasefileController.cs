@@ -41,10 +41,10 @@ namespace OpticaZamora.Controllers
         public ActionResult SaveEspxdiexte(Expediente expediente)
         {
             ExpedienteService.AddAExpediente(expediente);
-
-            string IdPaciente = expediente.PacienteId;
-
-            return RedirectPermanent("/CaseFile/Espxdiexte?Paciente_Expediente=" + IdPaciente);
+            var expedientes = ExpedienteService.GetListaExpedientes(expediente.PacienteId);
+            var paciente = SessionList.SetListaPaciente(expediente.PacienteId);
+            ViewBag.paciente = paciente;
+            return View("Espxdiexte", expedientes);
         }
         //File Detail
         [Authorize] ///DETALLE DE EXPEDIENTE

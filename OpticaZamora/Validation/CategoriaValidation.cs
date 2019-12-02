@@ -12,8 +12,8 @@ namespace OpticaZamora.Validation
     public class CategoriaValidation : ICategoriaValidation
     {
         private ModelStateDictionary modelState;
-        private IValidarCampos ValidarCampos;
-        OpticaContext context;
+        readonly IValidarCampos ValidarCampos;
+        readonly OpticaContext context;
         public CategoriaValidation(IValidarCampos ValidarCampos, OpticaContext context)
         {
             this.ValidarCampos = ValidarCampos;
@@ -26,20 +26,21 @@ namespace OpticaZamora.Validation
             {
                 ValidarNombre(categoria);
             }
-            catch(Exception){}
+            catch(Exception ex)
+            {
+                ex.ToString();
+            }
         }
         public void ValidateUpdate(Categoria categoria, ModelStateDictionary modelState)
         {
             var id = categoria.IdCategoria;
             var cate = context.Categorias.Where(o => o.IdCategoria == id);
             this.modelState = modelState;
-            try
+
+            if (!cate.Any( o => o.Nombre == categoria.Nombre))
             {
-                var nom = cate.Any(o => o.Nombre == categoria.Nombre);
-                if (nom == false)
-                    ///validar Nombre
-                    ValidarNombre(categoria);
-            }catch(Exception) { }
+                ValidarNombre(categoria);
+            }
         }
         void ValidarNombre(Categoria categoria)
         {

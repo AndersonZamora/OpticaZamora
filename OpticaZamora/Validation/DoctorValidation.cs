@@ -22,39 +22,22 @@ namespace OpticaZamora.Validation
         }
         [Authorize]
         public void Validate(Doctor doctor, ModelStateDictionary modelState)
-        {
-          
+        { 
             this.modelState = modelState;
             try {
-                //////////////////////////////////////////////////////
-                ///NUMERO DE DNI
                 ValidarNumeroDocumento(doctor);
-                ///CODIGO DE DOCTOR
                 ValidarCodigo(doctor);
-                ////////////////////////////////////
-                ///Nombres
                 ValidarNombres(doctor);
-                ///////////////////////
-                ///Apellidos
                 ValidarApellidos(doctor);
-                ///////////////////////////////
-                ///Celular 
                 ValidarCelular(doctor);
-                /////////////////////////////
-                ///Especialidad
                 ValidarEspecialidad(doctor);
-                ///////////////////////////////////////
                 ValidarEspecialidad(doctor);
-                ///Username
-                /////////////////////////////
-                ///Password
                 ValidarPasswor(doctor);
             }
             catch (Exception e){
-                e.GetBaseException();
+                e.ToString();
             } 
-        }
-      
+        }    
         public void ValidateUpdate(Doctor doctor, ModelStateDictionary modelState)
         {
             var id = doctor.IdDoctor;
@@ -62,44 +45,34 @@ namespace OpticaZamora.Validation
             this.modelState = modelState;
             try
             {
-                var cod = dctor.Any(o => o.Codigo == doctor.Codigo);
-                var dni = dctor.Any(o => o.NumeroDocumento == doctor.NumeroDocumento);
-                var nomb = dctor.Any(o => o.Nombres == doctor.Nombres);
-                var apell = dctor.Any(o => o.Apellidos == doctor.Apellidos);
-                var cell = dctor.Any(o => o.Celular == doctor.Celular);
-                var especi = dctor.Any(o => o.Especialidad == doctor.Especialidad);
-                var usern = dctor.Any(o => o.Username == doctor.Username);
-                var pass = dctor.Any(o => o.Password == doctor.Password);
-
-                if (cod == false)
-                {  ///CODIGO DE DOCTOR
+                if(!dctor.Any(o => o.Codigo == doctor.Codigo))
                     ValidarCodigo(doctor);
-                }
-                  
-                    //////////////////////////////////////////////////////
-                if (dni == false)
-                    ///NUMERO DE DNI
+
+                if(!dctor.Any(o => o.NumeroDocumento == doctor.NumeroDocumento))
                     ValidarNumeroDocumento(doctor);
-                if(nomb == false)
-                    ///Nombres
+
+                 if(!dctor.Any(o => o.Nombres == doctor.Nombres))
                     ValidarNombres(doctor);
-                if(apell == false)
-                    ///Apellidos
+
+                if(!dctor.Any(o => o.Apellidos == doctor.Apellidos))
                     ValidarApellidos(doctor);
-                if(cell == false)
-                    ///Celular
+
+               if(!dctor.Any(o => o.Celular == doctor.Celular))
                     ValidarCelular(doctor);
-                if (especi == false)
-                    ///Especialidad
+
+                if(!dctor.Any(o => o.Especialidad == doctor.Especialidad))
                     ValidarEspecialidad(doctor);
-                if (usern == false)
-                    ///Username
+
+                if(!dctor.Any(o => o.Username == doctor.Username))
                     ValidarUserName(doctor);
-                if (pass == false)
-                    ///Password
+
+                if(!dctor.Any(o => o.Password == doctor.Password))
                     ValidarPasswor(doctor);
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
         }
         public bool IsValid()
         {
@@ -122,8 +95,6 @@ namespace OpticaZamora.Validation
 
             if (!validarCampos.validarCaractes(doctor.Codigo))
                 modelState.AddModelError("Codigo", "Ingrese Un codigo valido");
-            //if (!validarCaractes(doctor.Codigo))
-            //    modelState.AddModelError("Codigo", "Ingrese Un codigo valido");
 
             if (dctor.Any(o => o.Codigo == doctor.Codigo))
                 modelState.AddModelError("Codigo", "Ya existe un doctor con este codido");
@@ -134,8 +105,6 @@ namespace OpticaZamora.Validation
             if (string.IsNullOrEmpty(doctor.NumeroDocumento))
                 modelState.AddModelError("NumeroDocumento", "El Numero de Documento es Obligatorio");
 
-            //if(!validarnUMEROS(doctor.NumeroDocumento))
-            //    modelState.AddModelError("NumeroDocumento", "Solo Ingrese numeros");
             if (!validarCampos.validarnUMEROS(doctor.NumeroDocumento))
                 modelState.AddModelError("NumeroDocumento", "Solo Ingrese numeros");
 
@@ -150,11 +119,9 @@ namespace OpticaZamora.Validation
         }
         public void ValidarNombres(Doctor doctor)
         {
-            var dctor = context.Doctores;
             if (string.IsNullOrEmpty(doctor.Nombres))
                 modelState.AddModelError("Nombres", "El Nombre es Obligatorio");
-            //if(!validarLetras(doctor.Nombres))
-            //    modelState.AddModelError("Nombres", "Solo ingrese caracteres alfabeticos");
+
             if (!validarCampos.validarLetras(doctor.Nombres))
                 modelState.AddModelError("Nombres", "Solo ingrese caracteres alfabeticos");
 
@@ -169,8 +136,7 @@ namespace OpticaZamora.Validation
           
             if (string.IsNullOrEmpty(doctor.Apellidos))
                 modelState.AddModelError("Apellidos", "El Nombre es Obligatorio");
-            //if (!validarLetras(doctor.Apellidos))
-            //    modelState.AddModelError("Apellidos", "Solo ingrese caracteres alfabeticos");
+
             if (!validarCampos.validarLetras(doctor.Apellidos))
                 modelState.AddModelError("Apellidos", "Solo ingrese caracteres alfabeticos");
 
@@ -185,8 +151,7 @@ namespace OpticaZamora.Validation
             var dctor = context.Doctores;
             if (string.IsNullOrEmpty(doctor.Celular))
                 modelState.AddModelError("Celular", "El Celular es Obligatorio");
-            //if(!validarnUMEROS(doctor.Celular))
-            //    modelState.AddModelError("Celular", "Ingrese solo caracteres numericos");
+
             if (!validarCampos.validarnUMEROS(doctor.Celular))
                 modelState.AddModelError("Celular", "Ingrese solo caracteres numericos");
             if (doctor.Celular.Length < 8 || doctor.Celular.Length > 9)
@@ -202,8 +167,7 @@ namespace OpticaZamora.Validation
         {
             if (string.IsNullOrEmpty(doctor.Especialidad))
                 modelState.AddModelError("Especialidad", "La Especialidad es Obligatorio");
-            //if(!validarLetras(doctor.Especialidad))
-            //    modelState.AddModelError("Especialidad", "Solo ingrese caracteres alfabeticos");
+
             if (!validarCampos.validarLetras(doctor.Especialidad))
                 modelState.AddModelError("Especialidad", "Solo ingrese caracteres alfabeticos");
 
@@ -215,8 +179,7 @@ namespace OpticaZamora.Validation
             var dctor = context.Doctores;
             if (string.IsNullOrEmpty(doctor.Username))
                 modelState.AddModelError("Username", "El Nombre de usuario es Obligatorio");
-            //if(!validarCaractes(doctor.Username))
-            //    modelState.AddModelError("Username", "Nombre de usuario invalido,(Sin espacion ni caracteres especiales)");
+
             if (!validarCampos.validarCaractes(doctor.Username))
                 modelState.AddModelError("Username", "Nombre de usuario invalido,(Sin espacion ni caracteres especiales)");
 
@@ -247,12 +210,3 @@ namespace OpticaZamora.Validation
        
     }
 }
-
-//long number1 = 0;
-//bool canComvert = long.TryParse(numString, out number1);
-
-
-////if (!char.IsLetter(charArr))
-////{
-////    modelState.AddModelError("Codigo", "solo nuemors");
-////}

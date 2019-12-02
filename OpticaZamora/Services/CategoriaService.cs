@@ -36,7 +36,9 @@ namespace OpticaZamora.Services
                 categorias = Context.Categorias.Where(o => o.IdCategoria == IdCategoria).First();
                 return categorias;
             }
-            catch (Exception) { }
+            catch (Exception ex) {
+                ex.ToString();
+            }
             return categorias;
         }
         [Authorize]

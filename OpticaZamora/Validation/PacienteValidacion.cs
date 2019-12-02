@@ -12,8 +12,8 @@ namespace OpticaZamora.Validation
     public class PacienteValidacion : IPacienteValidacion
     {
         private ModelStateDictionary modelState;
-        private OpticaContext context;
-        private IValidarCampos validarCampos;
+        readonly OpticaContext context;
+        readonly IValidarCampos validarCampos;
         public PacienteValidacion(IValidarCampos validarCampos)
         {
             this.validarCampos = validarCampos;
@@ -25,60 +25,51 @@ namespace OpticaZamora.Validation
             this.modelState = modelState;
             try
             {
-                ///NUMEROS DE DNI
                 NUMERODEIDENTIFICACION(paciente);
-                ///VALIDAR FORMATO DE CORREO
                 VALIDARCORREO(paciente);          
-                ///////////////////
-                ///Nombres
                 VALIDARNOMBRES(paciente);
-                ///////////////////////////////
-                ///Apellidos
                 VALIDARAPELLIDOS(paciente); 
-                ///////////////////////
-                ///Telefono
                 VALIDARTELEFONO(paciente);
-                ///////////////////////////
-                ///EDAD
                 VALIDAREDAD(paciente);
-                ///DIRECCION
                 VALIDARDIRECCION(paciente);
-
             }
-            catch(Exception) { }
+            catch(Exception ex)
+            {
+                ex.ToString();
+            }
         }
         public void validateUpdate(Paciente paciente, ModelStateDictionary modelState)
         {
             var id = paciente.IdPaciente;
             var paci = context.Pacientes.Where(o => o.IdPaciente == id);
             this.modelState = modelState;
-
             try
             {
-                var numeroIden = paci.Any(o => o.NumeroDocumento == paciente.NumeroDocumento);
-                var nombrs = paci.Any(o => o.Nombres == paciente.Nombres);
-                var apell = paci.Any(o => o.Apellidos == paciente.Apellidos);
-                var edad = paci.Any(o => o.Edad == paciente.Edad);
-                var correo = paci.Any(o => o.Correo == paciente.Correo);
-                var direcc = paci.Any(o => o.Direccion == paciente.Direccion);
-                var numer = paci.Any(o => o.Celular == paciente.Celular);
-
-                if (numeroIden == false)
+                if(!paci.Any(o => o.NumeroDocumento == paciente.NumeroDocumento))
                     NUMERODEIDENTIFICACION(paciente);
-                if (nombrs == false)
+
+                if(!paci.Any(o => o.Nombres == paciente.Nombres))
                     VALIDARNOMBRES(paciente);
-                if (apell == false)
+
+                if (!paci.Any(o => o.Apellidos == paciente.Apellidos))
                     VALIDARAPELLIDOS(paciente);
-                if (edad == false)
+
+                if(!paci.Any(o => o.Edad == paciente.Edad))
                     VALIDAREDAD(paciente);
-                if (correo == false)
+
+                if(!paci.Any(o => o.Correo == paciente.Correo))
                     VALIDARCORREO(paciente);
-                if (direcc == false)
+
+                if(!paci.Any(o => o.Direccion == paciente.Direccion))
                     VALIDARDIRECCION(paciente);
-                if (numer == false)
-                    VALIDARTELEFONO(paciente);
+
+                if (!paci.Any(o => o.Celular == paciente.Celular))
+                    VALIDARTELEFONO(paciente);                   
             }
-            catch(Exception) { }
+            catch(Exception ex)
+            {
+                ex.ToString();
+            }
         }
         private void VALIDARDIRECCION(Paciente paciente)
         {

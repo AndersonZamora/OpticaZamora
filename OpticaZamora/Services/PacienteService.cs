@@ -13,7 +13,7 @@ namespace OpticaZamora.Services
 {
     public class PacienteService : IPacienteService
     {
-        private OpticaContext Context;
+        readonly OpticaContext Context;
         public PacienteService(OpticaContext Context)
         {
             this.Context = Context;
@@ -50,7 +50,9 @@ namespace OpticaZamora.Services
                 paciente = Context.Pacientes.Where(p => p.IdPaciente == IdPaciente).First();
                 return paciente;
             }
-            catch (Exception) { }
+            catch (Exception ex) {
+                ex.ToString();
+            }
             return paciente;
         }
         [Authorize]

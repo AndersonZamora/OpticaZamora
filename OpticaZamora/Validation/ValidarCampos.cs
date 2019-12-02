@@ -175,9 +175,9 @@ namespace OpticaZamora.Validation
                 return false;
             }
         }
-        public bool ValidarStock(int stock)
+        public bool ValidarStock(int nombre)
         {
-            string stoc = stock.ToString();
+            string stoc = nombre.ToString();
 
             String expresion;
 
