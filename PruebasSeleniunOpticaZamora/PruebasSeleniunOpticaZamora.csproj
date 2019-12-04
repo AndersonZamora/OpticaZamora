@@ -81,6 +81,7 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,7 +95,13 @@
   <ItemGroup>
     <Compile Include="LinkGlobal\Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seleniun\Categoria\CategoriaTest.cs" />
+    <Compile Include="Seleniun\Doctor\DoctorTest.cs" />
+    <Compile Include="Seleniun\Login\LoginTest.cs" />
     <Compile Include="Seleniun\OpticaTest.cs" />
+    <Compile Include="Seleniun\Paciente\PacienteTest.cs" />
+    <Compile Include="Seleniun\Producto\ProductoTest.cs" />
+    <Compile Include="Seleniun\Venta\VentaTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

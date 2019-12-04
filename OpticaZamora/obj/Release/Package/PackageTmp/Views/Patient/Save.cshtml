@@ -28,7 +28,7 @@
         </div>
         <div class="container-flat-form">
             <div class="title-flat-form title-flat-blue">Nuevo Paciente</div>
-            <form action="/Patient/Save" method="POST" autocomplete="off" enctype="multipart/form-data" class="form-paddin AjaxForm" data-form="save">
+            <form action="/Patient/Save" method="POST" id="MyFrom" autocomplete="off" enctype="multipart/form-data" class="form-paddin AjaxForm" data-form="save">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12">
@@ -104,7 +104,7 @@
                                     new { @class = "ancho form-control"})
                             </div>
                         </div>
-                        <div class="col-md-6 form-group" >
+                        <div class="col-md-6 form-group">
                             <div class="group-material">
                                 <h4 class="pl-2"><strong>Direccion</strong></h4>
                                 <input id="pacienteDireccion" type="text" name="Direccion" value="@Model.Direccion" class="material-control" placeholder="Dirección" title="Máximo 150 caracteres">
@@ -125,9 +125,14 @@
                 </div>
                 <p class="text-center">
                     <button onclick="swal('Good job', 'Datos Limpiados!' , 'success')" id="pacienteLimpiar" type="reset" class="btn btn-info" style="margin-right: 20px;">Limpiar</button>
-                    <button id="pacienteGuardar" type="submit" class="btn btn-primary"> Guardar</button>
+                    <button onclick="save()" id="pacienteGuardar"  class="btn btn-primary"> Guardar</button>
                 </p>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+  
+
+</script>

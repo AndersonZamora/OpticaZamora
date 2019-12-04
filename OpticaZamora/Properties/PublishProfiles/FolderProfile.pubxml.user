@@ -78,6 +78,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="assets/img/Macbook.png">
       <publishTime>09/05/2019 14:28:53</publishTime>
     </File>
+    <File Include="assets/img/marc.jpg">
+      <publishTime>12/02/2019 13:29:17</publishTime>
+    </File>
     <File Include="assets/img/mask.png">
       <publishTime>09/05/2019 14:28:53</publishTime>
     </File>
@@ -721,10 +724,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/18/2018 09:44:54</publishTime>
     </File>
     <File Include="bin/OpticaZamora.dll">
-      <publishTime>11/13/2019 15:30:36</publishTime>
+      <publishTime>12/02/2019 13:38:02</publishTime>
     </File>
     <File Include="bin/OpticaZamora.pdb">
-      <publishTime>11/13/2019 15:30:36</publishTime>
+      <publishTime>12/02/2019 13:38:02</publishTime>
     </File>
     <File Include="bin/Release/Publish/assets/img/faces/vue.png">
       <publishTime>10/02/2019 14:49:54</publishTime>
@@ -989,6 +992,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Content/error404.css">
       <publishTime>09/21/2019 20:58:20</publishTime>
+    </File>
+    <File Include="Content/img/vue.png">
+      <publishTime>12/02/2019 13:28:57</publishTime>
     </File>
     <File Include="Content/js/i18n/af.js">
       <publishTime>10/10/2019 12:09:35</publishTime>
@@ -1294,7 +1300,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/31/2019 23:48:55</publishTime>
     </File>
     <File Include="Views/Doctor/Save.cshtml">
-      <publishTime>10/31/2019 23:46:27</publishTime>
+      <publishTime>11/26/2019 20:11:52</publishTime>
     </File>
     <File Include="Views/Doctor/SaveConsulta.cshtml">
       <publishTime>09/18/2019 14:43:38</publishTime>
@@ -1309,7 +1315,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/05/2019 11:09:08</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>10/02/2019 14:52:42</publishTime>
+      <publishTime>12/02/2019 13:30:23</publishTime>
     </File>
     <File Include="Views/Login/messenge.cshtml">
       <publishTime>10/02/2019 14:42:48</publishTime>
@@ -1399,10 +1405,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/31/2019 23:22:45</publishTime>
     </File>
     <File Include="Views/Patient/List.cshtml">
-      <publishTime>10/31/2019 23:23:57</publishTime>
+      <publishTime>11/24/2019 20:50:36</publishTime>
     </File>
     <File Include="Views/Patient/Save.cshtml">
-      <publishTime>10/31/2019 23:10:53</publishTime>
+      <publishTime>11/26/2019 20:20:09</publishTime>
     </File>
     <File Include="Views/Product/Edit.cshtml">
       <publishTime>11/01/2019 00:50:22</publishTime>
@@ -1435,7 +1441,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/10/2019 12:38:18</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/04/2019 13:11:53</publishTime>
+      <publishTime>12/02/2019 13:32:37</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutDoctor.cshtml">
       <publishTime>09/17/2019 00:38:48</publishTime>
@@ -1444,13 +1450,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/13/2019 14:32:24</publishTime>
     </File>
     <File Include="Views/Venta/ItemVenta.cshtml">
-      <publishTime>11/04/2019 10:25:41</publishTime>
+      <publishTime>12/02/2019 10:57:41</publishTime>
     </File>
     <File Include="Views/Venta/ModuloDeVentas.cshtml">
       <publishTime>10/14/2019 13:31:46</publishTime>
     </File>
     <File Include="Views/Venta/SalesModule.cshtml">
-      <publishTime>11/12/2019 19:21:47</publishTime>
+      <publishTime>11/22/2019 19:30:38</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>09/05/2019 11:09:08</publishTime>
@@ -1459,7 +1465,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/05/2019 11:09:08</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/13/2019 15:30:37</publishTime>
+      <publishTime>12/02/2019 13:18:55</publishTime>
     </File>
   </ItemGroup>
 </Project>

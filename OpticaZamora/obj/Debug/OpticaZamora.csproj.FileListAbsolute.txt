@@ -110,6 +110,6 @@ C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\bin\System.Sec
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\bin\System.Security.SecureString.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\bin\System.Threading.Overlapped.dll
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\bin\System.Xml.XPath.XDocument.dll
-C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Debug\OpticaZamora.csprojAssemblyReference.cache
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Debug\OpticaZamora.csproj.CoreCompileInputs.cache
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Debug\OpticaZamora.csproj.CopyComplete
+C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\OpticaZamora\obj\Debug\OpticaZamora.csprojAssemblyReference.cache
