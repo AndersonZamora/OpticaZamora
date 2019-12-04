@@ -69,3 +69,5 @@ C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasUnitariasOpticaZamor
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasUnitariasOpticaZamora\obj\Debug\PruebasUnitariasOpticaZamora.csprojAssemblyReference.cache
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasUnitariasOpticaZamora\obj\Debug\PruebasUnitariasOpticaZamora.csproj.CoreCompileInputs.cache
 C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasUnitariasOpticaZamora\obj\Debug\PruebasUnitariasOpticaZamora.csproj.CopyComplete
+C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasUnitariasOpticaZamora\bin\Debug\WebDriver.dll
+C:\Users\ander\Escritorio\Visual 2019-2\OpticaZamora\PruebasUnitariasOpticaZamora\bin\Debug\WebDriver.xml

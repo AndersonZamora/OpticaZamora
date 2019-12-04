@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <!--     Fonts and icons     -->
 
-    <link rel="icon" type="image/png" href="~/assets/img/vue.png" />
+    <link rel="icon" type="image/png" href="~/Content/img/vue.png" />
     <link href="~/Content/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/bootstrap.min2.css">
     <link rel="stylesheet" href="~/Content/StyleSheet1.css">
@@ -37,7 +37,7 @@
                 <div class="card-profile">
                     <div class="">
                         <a href="">
-                            <img class="img" src="~/assets/img/faces/marc.jpg" width="200" />
+                            <img class="img" src="~/assets/img/marc.jpg" width="200" />
                         </a>
                     </div>
                     <hr />
@@ -69,14 +69,6 @@
                             <a id="barraPacienetelistaLink" class="nav-link" href="/Patient/List"><i class="material-icons">content_paste</i>Lista de Paciente</a>
                         </div>
                     </li>
-                    @*<li class="nav-item dropdown ">
-                        <a class="nav-link" data-toggle="dropdown" href="#"><i class="material-icons">account_balance</i>Sucursales</a>
-                        <div class="dropdown-menu">
-
-                            <a class="nav-link" href="#"> <i class="material-icons">store</i>Nueva Sucursal</a>
-                            <a class="nav-link" href="/Optica/Sucursals"><i class="material-icons">content_paste</i>Lista de Sucursales</a>
-                        </div>
-                    </li>*@
                     <li class="nav-item dropdown ">
                         <a id="barraDoctorLink" class="nav-link" data-toggle="dropdown" href="#"><i class="material-icons">assignment_ind</i>Doctores</a>
                         <div class="dropdown-menu">
@@ -88,31 +80,29 @@
                         <a class="nav-link" data-toggle="dropdown" href="#"><i class="material-icons">store</i>Productos</a>
                         <div class="dropdown-menu">
 
-                            <a class="nav-link" href="#"> <i class="material-icons">add_shopping_cart</i>Nuevo Producto</a>
-                            <a class="nav-link" href="#"><i class="material-icons">content_paste</i>Lista de productos</a>
+                            <a class="nav-link" href="/Product/Save"> <i class="material-icons">add_shopping_cart</i>Nuevo Producto</a>
+                            <a class="nav-link" href="/Product/List"><i class="material-icons">content_paste</i>Lista de productos</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown ">
                         <a class="nav-link" data-toggle="dropdown" href="#"><i class="material-icons">loyalty</i>Categoria</a>
                         <div class="dropdown-menu">
 
-                            <a class="nav-link" href="#"> <i class="material-icons">loyalty</i>Nueva Categoria</a>
-                            <a class="nav-link" href="#"><i class="material-icons">content_paste</i>Lista de Categorias</a>
+                            <a class="nav-link" href="/Category/Save"> <i class="material-icons">loyalty</i>Nueva Categorias</a>
+                            <a class="nav-link" href="/Category/List"><i class="material-icons">content_paste</i>Lista de Categorias</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown ">
-                        <a class="nav-link" data-toggle="dropdown" href="#"><i class="material-icons">local_hospital</i>Consulta</a>
+                        <a class="nav-link" data-toggle="dropdown" href="#"><i class="material-icons">loyalty</i>Ventas</a>
                         <div class="dropdown-menu">
-
-                            <a class="nav-link" href="#"> <i class="material-icons">local_hospital</i>Nueva Consulta</a>
-                            <a class="nav-link" href="#"><i class="material-icons">content_paste</i>Lista de Consultas</a>
+                            <a class="nav-link" href="/Optica/Venta"> <i class="material-icons">loyalty</i>Nueva Venta</a>
+                            <a class="nav-link" href="/Venta/SalesModule"><i class="material-icons">content_paste</i>Lista de Ventas</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="main-panel">
-            <!-- Navbar navbar navbar-expand-lg navbar-dark bg-dark -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
@@ -146,9 +136,24 @@
             </nav>
             <div class="content">
                 <div class="container-fluid">
-                    <!-- your content here -->
                     @RenderBody()
                 </div>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+                <script>
+                    $(function () {
+                        var msg = document.getElementsByClassName('field-validation-error');
+                        for (var i = 0; i < msg.length; i++) {
+                           
+                            var price = msg[i].innerText;
+                            Swal.fire({
+                                icon: 'error',
+                                title: price,
+                            });
+                          
+                        }
+                    });
+
+                </script>
                 <script>
                     var slider = document.getElementById("myRange");
                     var output = document.getElementById("demo");
@@ -199,7 +204,6 @@
                     slider7.oninput = function () {
                         output7.innerHTML = this.value;
                     }
-                 
                 </script>
             </div>
         </div>

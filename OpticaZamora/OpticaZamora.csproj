@@ -224,12 +224,8 @@
     <Content Include="assets\css\material-dashboard.min.css" />
     <Content Include="assets\demo\demo.css" />
     <Content Include="assets\demo\demo.js" />
-    <Content Include="assets\img\faces\avatar.jpg" />
-    <Content Include="assets\img\faces\card-profile1-square.jpg" />
-    <Content Include="assets\img\faces\card-profile2-square.jpg" />
-    <Content Include="assets\img\faces\marc.jpg" />
+    <Content Include="assets\img\marc.jpg" />
     <Content Include="assets\img\Montura.jpg" />
-    <Content Include="assets\img\vue.png" />
     <Content Include="assets\js\core\bootstrap-material-design.min.js" />
     <Content Include="assets\js\core\jquery.min.js" />
     <Content Include="assets\js\core\popper.min.js" />
@@ -252,7 +248,6 @@
     <Content Include="assets\js\plugins\nouislider.min.js" />
     <Content Include="assets\js\plugins\perfect-scrollbar.jquery.min.js" />
     <Content Include="assets\js\plugins\sweetalert2.js" />
-    <Content Include="bin\Release\Publish\assets\img\faces\vue.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -261,6 +256,7 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\error404.css" />
+    <Content Include="Content\img\vue.png" />
     <Content Include="Content\js\i18n\af.js" />
     <Content Include="Content\js\i18n\ar.js" />
     <Content Include="Content\js\i18n\az.js" />

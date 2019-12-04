@@ -8,6 +8,6 @@ namespace PruebasSeleniunOpticaZamora.LinkGlobal
 {
     public class Global
     {
-        public const string URL = "http://opticazamora.somee.com/";
+        public const string URL = "http://localhost:51542/";
     }
 }
